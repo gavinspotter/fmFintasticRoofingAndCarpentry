@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const httpServer = require("http").createServer(app);
 const path = require("path");
 const aws = require("aws-sdk");
 
 const formData = require("express-form-data");
+
+const adminRoutes = require("./routes/admin-routes");
 
 const HttpError = require("./models/HttpError");
 
@@ -24,6 +27,8 @@ if (process.env.PROXY === "https://") {
 
 app.use(formData.parse());
 
+app.use(bodyParser.json());
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
 
@@ -36,6 +41,8 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.use("/api/admin", adminRoutes);
 
 app.use((req, res, next) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html"));

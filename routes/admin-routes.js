@@ -1,6 +1,6 @@
 const express = require("express");
 
-const adminController = require("../controllers/admin-controller");
+const adminController = require("../controllers/admin-controllers");
 
 const checkAuth = require("../middleware/check-auth");
 

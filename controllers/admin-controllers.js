@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const signup = async (req, res, next) => {
   const { username, password } = req.body;
+  console.log(password);
 
   let existingUser;
 
@@ -25,8 +26,10 @@ const signup = async (req, res, next) => {
   let hashedPassword;
 
   try {
+    console.log(password);
     hashedPassword = await bcrypt.hash(password, 12);
   } catch (err) {
+    console.log(err);
     const error = new HttpError(
       "Could not create user, please try again.",
       500
