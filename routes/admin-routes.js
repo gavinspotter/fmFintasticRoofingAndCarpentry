@@ -14,7 +14,7 @@ router.use(checkAuth);
 
 router.post("/createProject", adminController.createProject);
 
-router.delete("/deleteProject", adminController.deleteProject);
+router.delete("/deleteProject/:projectId", adminController.deleteProject);
 
 module.exports = router;
 module.exports = router;

@@ -206,7 +206,56 @@ const createProject = async (req, res, next) => {
   //   });
 };
 
-const deleteProject = async (req, res, next) => {};
+const deleteProject = async (req, res, next) => {
+  const projectId = req.params.projectId;
+
+  try {
+    findUser = await Admin.findById(req.userData.userId);
+  } catch (err) {
+    const error = new HttpError("something went wrong you're not logged in");
+    return next(error);
+  }
+
+  if (!findUser) {
+    const error = new HttpError("you're not logged in");
+    return next(error);
+  }
+
+  if (findUser._id.toString() !== req.userData.userId) {
+    const error = new HttpError("wrong account");
+    return next(error);
+  }
+
+  let findProject;
+
+  try {
+    findProject = await Projects.findById(projectId);
+  } catch (err) {
+    const error = new HttpError("something went wrong finding that");
+    return next(error);
+  }
+
+  if (!findProject) {
+    const error = new HttpError("thats not a project");
+    return next(error);
+  }
+
+  if (findProject.admin.toString() !== req.userData.userId) {
+    const error = new HttpError("that isn't something you can delete");
+    return next(error);
+  }
+
+  try {
+    await findProject.remove();
+    findUser.projects.pull(findProject);
+    await findUser.save();
+  } catch (err) {
+    const error = new HttpError("couldn't delete that project");
+    return next(error);
+  }
+
+  res.json({ findUser });
+};
 
 exports.signup = signup;
 
