@@ -2,8 +2,12 @@ const HttpError = require("../models/HttpError");
 
 const Admin = require("../models/Admin");
 
+const Projects = require("../models/Projects");
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
+const { v4: uuidv4 } = require("uuid");
 
 const signup = async (req, res, next) => {
   const { username, password } = req.body;
@@ -134,7 +138,73 @@ const login = async (req, res, next) => {
   });
 };
 
-const createProject = async (req, res, next) => {};
+const createProject = async (req, res, next) => {
+  const { type, description, materialsUsed } = req.body;
+
+  try {
+    findUser = await Admin.findById(req.userData.userId);
+  } catch (err) {
+    const error = new HttpError("something went wrong you're not logged in");
+    return next(error);
+  }
+
+  if (!findUser) {
+    const error = new HttpError("you're not logged in");
+    return next(error);
+  }
+
+  if (findUser._id.toString() !== req.userData.userId) {
+    const error = new HttpError("wrong account");
+    return next(error);
+  }
+
+  const createProject = new Projects({
+    type,
+    description,
+    photoBucketId: "hi",
+    admin: findUser._id,
+    materialsUsed,
+  });
+
+  try {
+    await createProject.save();
+  } catch (err) {
+    const error = new HttpError("couldn't save that");
+    return next(error);
+  }
+
+  try {
+    findUser.projects.push(createProject);
+    await findUser.save();
+  } catch (err) {
+    const error = new HttpError("couldn't save your project");
+    return next(error);
+  }
+
+  res.json({ createProject, findUser });
+
+  //   const s3 = new aws.S3({
+  //     accessKeyId: process.env.AWS_KEY,
+  //     secretAccessKey: process.env.AWS_SECRET_KEY,
+  //   });
+
+  //   const uniqueId = uuidv4();
+
+  //   const fileContent = fs.readFileSync(req.files.bucketPhotoId.path);
+
+  //   const params = {
+  //     Bucket: process.env.AWS_BUCKET_NAME,
+  //     Key: `${uniqueId}-${req.files.bucketPhotoId.name}`, // File name you want to save as in S3
+  //     Body: fileContent,
+  //   };
+
+  //   s3.upload(params, function (err, data) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     console.log(`File uploaded successfully. `);
+  //   });
+};
 
 const deleteProject = async (req, res, next) => {};
 
