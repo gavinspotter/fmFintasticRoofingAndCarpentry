@@ -134,6 +134,14 @@ const login = async (req, res, next) => {
   });
 };
 
+const createProject = async (req, res, next) => {};
+
+const deleteProject = async (req, res, next) => {};
+
 exports.signup = signup;
 
 exports.login = login;
+
+exports.createProject = createProject;
+
+exports.deleteProject = deleteProject;
