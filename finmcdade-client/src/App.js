@@ -10,6 +10,8 @@ import {
 import { useAuth } from "./shared/hooks/auth-hook";
 
 import { AuthContext } from "./shared/context/auth-context";
+import Dashboard from "./admin/Dashboard";
+import Home from "./homeShared/Home";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -19,15 +21,18 @@ const App = () => {
   if (token) {
     theRoutes = (
       <Routes>
-        <Route path="/dashboard" />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     );
   }
   if (!token) {
-    <Routes>
-      <Route path="/" />
-      <Route path="*" />
-    </Routes>;
+    theRoutes = (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    );
   }
 
   return (
@@ -40,6 +45,18 @@ const App = () => {
         logout: logout,
       }}
     >
+      {/* {token && 
+      <Router>
+          {theRoutes}
+      </Router>
+      }
+
+      {!token &&
+      <Router>
+          {theRoutes}
+      </Router>
+      } */}
+
       <Router>{theRoutes}</Router>
     </AuthContext.Provider>
   );

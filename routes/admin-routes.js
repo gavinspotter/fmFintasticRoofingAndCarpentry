@@ -17,4 +17,3 @@ router.post("/createProject", adminController.createProject);
 router.delete("/deleteProject/:projectId", adminController.deleteProject);
 
 module.exports = router;
-module.exports = router;
