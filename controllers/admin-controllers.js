@@ -161,7 +161,7 @@ const createProject = async (req, res, next) => {
   const createProject = new Projects({
     type,
     description,
-    photoBucketId: "hi",
+    coverPhotoBucketId: "hi",
     admin: findUser._id,
     materialsUsed,
   });

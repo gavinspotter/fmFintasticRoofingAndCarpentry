@@ -229,4 +229,30 @@
   background-color: maroon;
   position: relative;
   overflow: auto;
+
+  &-homeNav {
+    position: absolute;
+    top: 25rem;
+    right: 10rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 3.5rem;
+    text-align: center;
+    border-radius: 5rem;
+
+    background-color: white;
+  }
+
+  &-logout {
+    position: absolute;
+    top: 35rem;
+    right: 10rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 3.8rem;
+    text-align: center;
+    border-radius: 5rem;
+
+    background-color: white;
+  }
 }

@@ -11,7 +11,8 @@ const projectsSchema = new Schema({
   type: { type: String, required: true },
   description: { type: String },
   materialsUsed: [materialsSchema],
-  photoBucketId: { type: String, required: true },
+  coverPhotoBucketId: { type: String, required: true },
+  photosPhotoBucketIds: { type: String },
   admin: { type: mongoose.Types.ObjectId, required: true, ref: "Admin" },
 });
 
