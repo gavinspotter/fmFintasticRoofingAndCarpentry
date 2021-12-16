@@ -77,6 +77,18 @@
     font-family: "Palatino, URW Palladio L, serif";
     overflow: hidden;
   }
+  &-dashBoard {
+    position: absolute;
+    top: 30rem;
+    right: 8rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 3.8rem;
+    text-align: center;
+    border-radius: 5rem;
+
+    background-color: white;
+  }
 }
 
 .tie-left {
