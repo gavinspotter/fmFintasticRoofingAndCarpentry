@@ -2,11 +2,27 @@ import React from "react";
 
 import titleImg from "../img/fintastic_home.jpeg";
 import "../css/style.css";
+import { IoCreateOutline } from "react-icons/io5";
 
 const Home = () => {
   return (
     <div>
       <div className="home">
+        <div>
+          <svg width="0" height="0">
+            <linearGradient
+              id="blue-gradient"
+              x1="100%"
+              y1="100%"
+              x2="0%"
+              y2="0%"
+            >
+              <stop stopColor="#33D4FF" offset="0%" />
+              <stop stopColor="#015CD0" offset="100%" />
+            </linearGradient>
+          </svg>
+          <IoCreateOutline style={{ stroke: "url(#blue-gradient)" }} />
+        </div>
         <img
           className="home"
           src={titleImg}

@@ -6,9 +6,12 @@ import { IoHomeOutline, IoPowerOutline } from "react-icons/io5";
 
 import { AuthContext } from "../shared/context/auth-context";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 
 const Dashboard = () => {
   const auth = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -39,9 +42,17 @@ const Dashboard = () => {
     }
   }, [reset, isSubmitSuccessful]);
 
+  const homePageToggle = () => {
+    navigate("/");
+  };
+
+  const logoutToggle = () => {
+    auth.logout();
+  };
+
   return (
     <div className="dashboard">
-      <div className="dashboard-homeNav">
+      <div onClick={homePageToggle} className="dashboard-homeNav">
         <svg width="0" height="0">
           <linearGradient
             id="blue-gradient"
@@ -58,7 +69,7 @@ const Dashboard = () => {
         <IoHomeOutline style={{ stroke: "url(#blue-gradient)" }} />
       </div>
 
-      <div className="dashboard-logout">
+      <div onClick={logoutToggle} className="dashboard-logout">
         <svg width="0" height="0">
           <linearGradient
             id="blue-gradient"
@@ -90,6 +101,8 @@ const Dashboard = () => {
         </svg>
         <IoPower style={{ stroke: "url(#blue-gradient)" }} />
       </div> */}
+
+      <div className="dashboard-addPhotos"></div>
     </div>
   );
 };
