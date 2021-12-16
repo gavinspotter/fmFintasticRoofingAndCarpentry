@@ -12,6 +12,7 @@ import { useAuth } from "./shared/hooks/auth-hook";
 import { AuthContext } from "./shared/context/auth-context";
 import Dashboard from "./admin/Dashboard";
 import Home from "./homeShared/Home";
+import Login from "./admin/Login";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -23,12 +24,14 @@ const App = () => {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<Dashboard />} />
       </Routes>
     );
   }
   if (!token) {
     theRoutes = (
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />
       </Routes>
