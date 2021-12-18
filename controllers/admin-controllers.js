@@ -1,9 +1,10 @@
 const HttpError = require("../models/HttpError");
 
 const Admin = require("../models/Admin");
+const aws = require("aws-sdk"); //"^2.2.41"
 
 const Projects = require("../models/Projects");
-
+const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -142,9 +143,15 @@ const createProject = async (req, res, next) => {
   const { type, description, materialsUsed, coverPhotoBucketId } = req.body;
 
   //
+  console.log(Object.keys(req.files));
 
-  console.log(req.files[0]);
-  console.log(coverPhotoBucketId);
+  const objkeys = Object.keys(req.files);
+
+  //   console.log(req.files);
+  //   console.log(req.files[req.files.length - 1]);
+
+  //   console.log(req.files[2]);
+  //   console.log(req.files.length);
 
   const s3 = new aws.S3({
     accessKeyId: process.env.AWS_KEY,
@@ -153,11 +160,11 @@ const createProject = async (req, res, next) => {
 
   const uniqueId = uuidv4();
 
-  const fileContent = fs.readFileSync(req.files.coverBucketPhotoId.path);
+  const fileContent = fs.readFileSync(req.files[objkeys.length - 1].path);
 
   const params = {
     Bucket: process.env.AWS_BUCKET_NAME,
-    Key: `${uniqueId}-${req.files.bucketPhotoId.name}`, // File name you want to save as in S3
+    Key: `${uniqueId}-${objkeys.length - 1}`, // File name you want to save as in S3
     Body: fileContent,
   };
 
@@ -188,33 +195,38 @@ const createProject = async (req, res, next) => {
   const createProject = new Projects({
     type,
     description,
-    coverPhotoBucketId: `${uniqueId}-${req.files.bucketPhotoId.name}`,
+    coverPhotoBucketId: `${uniqueId}-${objkeys.length - 1}`,
     admin: findUser._id,
 
     materialsUsed,
   });
 
-  for (let i = 0; i < req.files.length; i++) {
-    //(i, req.files.picture[0]);
-    const uniqueIdPhotos = uuidv4();
+  try {
+    for (let i = 0; i < objkeys.length - 1; i++) {
+      //(i, req.files.picture[0]);
+      const uniqueIdPhotos = uuidv4();
 
-    const fileContentRound = fs.readFileSync(req.files[i].path);
-    const roundParams = {
-      Bucket: process.env.AWS_BUCKET_NAME,
-      Key: `${uniqueIdPhotos}-${req.files[i].name}`, // File name you want to save as in S3
-      Body: fileContentRound,
-    };
+      const fileContentRound = fs.readFileSync(req.files[i].path);
+      const roundParams = {
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Key: `${uniqueIdPhotos}-${req.files[i].name}`, // File name you want to save as in S3
+        Body: fileContentRound,
+      };
 
-    s3.upload(roundParams, function (err, data) {
-      if (err) {
-        throw err;
-      }
-      console.log(`File uploaded successfully. `);
-    });
+      s3.upload(roundParams, function (err, data) {
+        if (err) {
+          throw err;
+        }
+        console.log(`File uploaded successfully. `);
+      });
 
-    createProject.photosPhotoBucketIds.push(
-      `${uniqueIdPhotos}-${req.files[i].name}`
-    );
+      createProject.photosPhotoBucketIds.push(
+        `${uniqueIdPhotos}-${req.files[i].name}`
+      );
+    }
+  } catch (err) {
+    const error = new HttpError("couldn't upload those photos");
+    return next(error);
   }
 
   try {

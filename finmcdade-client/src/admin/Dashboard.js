@@ -12,6 +12,7 @@ import {
   FormProvider,
 } from "react-hook-form";
 import { useNavigate } from "react-router";
+import ErrorModal from "../shared/UIElements/ErrorModal";
 
 const Dashboard = () => {
   const [file, setFile] = useState();
@@ -97,7 +98,9 @@ const Dashboard = () => {
       for (let i = 0; i < data.test.length; i++) {
         formData.append(i, data.test[i].picture[0]);
       }
-      formData.append("coverPhotoBucketId", data.picture[0]);
+
+      formData.append(data.test.length, data.picture[0]);
+
       formData.append("type", data.name);
       formData.append("description", data.description);
       //formData.append("materialsUsed");
@@ -134,6 +137,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
+      <ErrorModal error={error} onClear={clearError} />
       <div onClick={homePageToggle} className="dashboard-homeNav">
         <svg width="0" height="0">
           <linearGradient
