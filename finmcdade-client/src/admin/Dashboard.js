@@ -5,7 +5,12 @@ import { useHttpClient } from "../shared/hooks/http-hook";
 import { IoHomeOutline, IoPowerOutline } from "react-icons/io5";
 
 import { AuthContext } from "../shared/context/auth-context";
-import { Controller, useFieldArray, useForm } from "react-hook-form";
+import {
+  Controller,
+  useFieldArray,
+  useForm,
+  FormProvider,
+} from "react-hook-form";
 import { useNavigate } from "react-router";
 
 const Dashboard = () => {
@@ -21,34 +26,39 @@ const Dashboard = () => {
 
   const {
     register,
-    control,
+    //control,
     handleSubmit,
     reset,
+    trigger,
+    setError,
+    control,
     formState: { isSubmitSuccessful },
   } = useForm({
-    name: "",
-    price: "",
+    picture: null,
+    type: "",
     description: "",
-    bulkName: "",
-    bulkDescription: "",
-    bulkPrice: "",
-    image: null,
-    bulkImage: null,
+    // name: "",
+    // price: "",
+    // description: "",
+    // bulkName: "",
+    // bulkDescription: "",
+    // bulkPrice: "",
+    // image: null,
+    // bulkImage: null,
   });
-  const { fields, append } = useFieldArray({
-    control,
+
+  const { fields, append, remove } = useFieldArray({
+    control: control,
+
     name: "test",
   });
 
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset({
-        name: "",
-        price: "",
+        picture: null,
+        type: "",
         description: "",
-        bulkName: "",
-        bulkDescription: "",
-        bulkPrice: "",
       });
     }
   }, [reset, isSubmitSuccessful]);
@@ -78,38 +88,40 @@ const Dashboard = () => {
     }
   };
 
-  const submitAProject = async (cData) => {
-    console.log(cData);
+  const submitAProject = async (data) => {
+    console.log(data);
 
-    // try {
-    //   //const fileContent = fs.readFileSync(data.image[0])
-    //   const formData = new FormData();
-    //   formData.append("coverPhotoBucketId", file);
-    //   formData.append("type", cData.name);
-    //   formData.append("description", cData.description);
-    //   formData.append("materialsUsed", );
+    try {
+      //const fileContent = fs.readFileSync(data.image[0])
+      const formData = new FormData();
+      for (let i = 0; i < data.test.length; i++) {
+        formData.append(i, data.test[i].picture[0]);
+      }
+      formData.append("coverPhotoBucketId", data.picture[0]);
+      formData.append("type", data.name);
+      formData.append("description", data.description);
+      //formData.append("materialsUsed");
 
-    //   await sendRequest(
-    //     `http://localhost:5000/admin/createConsumerItem`,
-    //     "POST",
-    //     // JSON.stringify({
-    //     //     name: data.name,
-    //     //     description: data.description,
-    //     //     price: data.price,
-    //     //     bucketPhotoId: data.image[0]
+      await sendRequest(
+        `http://localhost:5000/api/admin/createProject`,
+        "POST",
+        // JSON.stringify({
+        //   name: data.name,
+        //   description: data.description,
+        //   price: data.price,
+        //   bucketPhotoId: data.image[0],
+        // }),
 
-    //     // }),
+        formData,
 
-    //     formData,
-
-    //     {
-    //       //"Content-Type": "application/json",
-    //       Authorization: "Bearer " + auth.token,
-    //     }
-    //   );
-    // } catch (err) {
-    //   console.log(err);
-    // }
+        {
+          //"Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const homePageToggle = () => {
@@ -176,33 +188,49 @@ const Dashboard = () => {
         <form className="addItem-form" onSubmit={handleSubmit(submitAProject)}>
           <div className="addItem-inputs">
             <label className="addItem-picInput-label" for="input">
+              type
+            </label>
+            <input id="input" {...register("type")} type="text" />
+            <label className="addItem-picInput-label" for="input">
+              description
+            </label>
+            <input {...register("description")} type="text" />
+            <label className="addItem-picInput-label" for="input">
               add image
             </label>
             <input
               id="input"
-              {...register("cImage")}
+              {...register("picture")}
               type="file"
               accept=".jpg,.png,.jpeg"
               onChange={pickedHandler}
               className="addItem-picInput"
             />
             {/* <button type="button" onClick={pickImageHandler}> pick image</button> */}
-            <div></div>
+
             <br />
-            <br />
+
             {fields.map((item, index) => (
               <li key={item.id}>
-                <input {...register(`test.${index}.firstName`)} />
-                <input {...register(`test.${index}.firstName`)} />
-                <input {...register(`test.${index}.firstName`)} />
+                <input
+                  {...register(`test.${index}.picture`)}
+                  type="file"
+                  accept=".jpg,.png,.jpeg"
+                />
+                <button type="button" onClick={() => remove(index)}>
+                  Delete
+                </button>
+                {/* <Controller
+                  render={({ field }) => <input {...field} />}
+                  name={`test.${index}.lastName`}
+                  control={control}
+                /> */}
               </li>
             ))}
 
-            <input {...register("priceD")} />
-            <br />
-            <input {...register("priceD")} />
-            <input {...register("priceD")} />
-            <Controller />
+            <button type="button" onClick={() => append({ picture: null })}>
+              append
+            </button>
 
             <button className="addItem-submitButton">submit</button>
           </div>

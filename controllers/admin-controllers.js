@@ -139,7 +139,34 @@ const login = async (req, res, next) => {
 };
 
 const createProject = async (req, res, next) => {
-  const { type, description, materialsUsed } = req.body;
+  const { type, description, materialsUsed, coverPhotoBucketId } = req.body;
+
+  //
+
+  console.log(req.files[0]);
+  console.log(coverPhotoBucketId);
+
+  const s3 = new aws.S3({
+    accessKeyId: process.env.AWS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+  });
+
+  const uniqueId = uuidv4();
+
+  const fileContent = fs.readFileSync(req.files.coverBucketPhotoId.path);
+
+  const params = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Key: `${uniqueId}-${req.files.bucketPhotoId.name}`, // File name you want to save as in S3
+    Body: fileContent,
+  };
+
+  s3.upload(params, function (err, data) {
+    if (err) {
+      throw err;
+    }
+    console.log(`File uploaded successfully. `);
+  });
 
   try {
     findUser = await Admin.findById(req.userData.userId);
@@ -161,10 +188,34 @@ const createProject = async (req, res, next) => {
   const createProject = new Projects({
     type,
     description,
-    coverPhotoBucketId: "hi",
+    coverPhotoBucketId: `${uniqueId}-${req.files.bucketPhotoId.name}`,
     admin: findUser._id,
+
     materialsUsed,
   });
+
+  for (let i = 0; i < req.files.length; i++) {
+    //(i, req.files.picture[0]);
+    const uniqueIdPhotos = uuidv4();
+
+    const fileContentRound = fs.readFileSync(req.files[i].path);
+    const roundParams = {
+      Bucket: process.env.AWS_BUCKET_NAME,
+      Key: `${uniqueIdPhotos}-${req.files[i].name}`, // File name you want to save as in S3
+      Body: fileContentRound,
+    };
+
+    s3.upload(roundParams, function (err, data) {
+      if (err) {
+        throw err;
+      }
+      console.log(`File uploaded successfully. `);
+    });
+
+    createProject.photosPhotoBucketIds.push(
+      `${uniqueIdPhotos}-${req.files[i].name}`
+    );
+  }
 
   try {
     await createProject.save();
