@@ -57,11 +57,11 @@ const Dashboard = () => {
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset({
-        picture: null,
         type: "",
         description: "",
       });
     }
+    setPreviewUrl(null);
   }, [reset, isSubmitSuccessful]);
 
   useEffect(() => {
@@ -95,13 +95,19 @@ const Dashboard = () => {
     try {
       //const fileContent = fs.readFileSync(data.image[0])
       const formData = new FormData();
-      for (let i = 0; i < data.test.length; i++) {
-        formData.append(i, data.test[i].picture[0]);
+      if (data.test) {
+        for (let i = 0; i < data.test.length; i++) {
+          formData.append(i, data.test[i].picture[0]);
+        }
       }
 
-      formData.append(data.test.length, data.picture[0]);
+      if (data.test.length) {
+        formData.append(data.test.length, data.picture[0]);
+      } else {
+        formData.append("0", data.picture[0]);
+      }
 
-      formData.append("type", data.name);
+      formData.append("type", data.type);
       formData.append("description", data.description);
       //formData.append("materialsUsed");
 
@@ -194,7 +200,7 @@ const Dashboard = () => {
             <label className="addItem-picInput-label" for="input">
               type
             </label>
-            <input id="input" {...register("type")} type="text" />
+            <input {...register("type")} type="text" />
             <label className="addItem-picInput-label" for="input">
               description
             </label>
