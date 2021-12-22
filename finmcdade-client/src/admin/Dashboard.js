@@ -48,10 +48,16 @@ const Dashboard = () => {
     // bulkImage: null,
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const arr2 = useFieldArray({
     control: control,
 
-    name: "test",
+    name: "pics",
+  });
+
+  const arr1 = useFieldArray({
+    control: control,
+
+    name: "materialsUsed",
   });
 
   useEffect(() => {
@@ -95,17 +101,26 @@ const Dashboard = () => {
     try {
       //const fileContent = fs.readFileSync(data.image[0])
       const formData = new FormData();
-      if (data.test) {
-        for (let i = 0; i < data.test.length; i++) {
-          formData.append(i, data.test[i].picture[0]);
+
+      // if (data.materialsUsed.length) {
+      //   console.log("hi");
+      //   for (let i = 0; i < data.materialsUsed.length; i++) {
+
+      //   }
+      // }
+
+      if (data.pics) {
+        for (let i = 0; i < data.pics.length; i++) {
+          formData.append(i, data.pics[i].picture[0]);
         }
       }
 
-      if (data.test.length) {
-        formData.append(data.test.length, data.picture[0]);
+      if (data.pics) {
+        formData.append(data.pics.length, data.picture[0]);
       } else {
         formData.append("0", data.picture[0]);
       }
+      formData.append("materialsUsed", JSON.stringify(data.materialsUsed));
 
       formData.append("type", data.type);
       formData.append("description", data.description);
@@ -220,14 +235,14 @@ const Dashboard = () => {
 
             <br />
 
-            {fields.map((item, index) => (
+            {arr2.fields.map((item, index) => (
               <li key={item.id}>
                 <input
-                  {...register(`test.${index}.picture`)}
+                  {...register(`pics.${index}.picture`)}
                   type="file"
                   accept=".jpg,.png,.jpeg"
                 />
-                <button type="button" onClick={() => remove(index)}>
+                <button type="button" onClick={() => arr2.remove(index)}>
                   Delete
                 </button>
                 {/* <Controller
@@ -238,7 +253,33 @@ const Dashboard = () => {
               </li>
             ))}
 
-            <button type="button" onClick={() => append({ picture: null })}>
+            <button
+              type="button"
+              onClick={() => arr2.append({ picture: null })}
+            >
+              append
+            </button>
+            <br />
+
+            {arr1.fields.map((item, index) => (
+              <li key={item.id}>
+                <input {...register(`materialsUsed.${index}.name`)} />
+                <input {...register(`materialsUsed.${index}.dimensions`)} />
+                <button type="button" onClick={() => arr1.remove(index)}>
+                  Delete
+                </button>
+                {/* <Controller
+                  render={({ field }) => <input {...field} />}
+                  name={`test.${index}.lastName`}
+                  control={control}
+                /> */}
+              </li>
+            ))}
+
+            <button
+              type="button"
+              onClick={() => arr1.append({ name: "", dimensions: "" })}
+            >
               append
             </button>
 

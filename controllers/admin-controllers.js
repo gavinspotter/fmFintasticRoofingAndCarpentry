@@ -143,7 +143,7 @@ const createProject = async (req, res, next) => {
   const { type, description, materialsUsed, coverPhotoBucketId } = req.body;
 
   //
-  console.log(Object.keys(req.files));
+  //console.log(Object.keys(req.files));
 
   const objkeys = Object.keys(req.files);
 
@@ -192,14 +192,24 @@ const createProject = async (req, res, next) => {
     return next(error);
   }
 
+  console.log(materialsUsed);
+  //console.log(JSON.stringify(materialsUsed));
+
+  //   for (let i; i < materialsUsed.length; i++) {
+  //     console.log(JSON.stringify(materialsUsed[i]));
+  //   }
+  const parseData = JSON.parse(materialsUsed);
+
   const createProject = new Projects({
     type,
     description,
     coverPhotoBucketId: `${uniqueId}-${objkeys.length - 1}`,
     admin: findUser._id,
 
-    materialsUsed,
+    materialsUsed: parseData,
   });
+
+  //console.log(req.files);
 
   try {
     for (let i = 0; i < objkeys.length - 1; i++) {
