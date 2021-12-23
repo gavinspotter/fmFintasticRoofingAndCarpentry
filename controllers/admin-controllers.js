@@ -142,10 +142,17 @@ const login = async (req, res, next) => {
 const createProject = async (req, res, next) => {
   const { type, description, materialsUsed, coverPhotoBucketId } = req.body;
 
+  console.log(req.files);
+
   //
   //console.log(Object.keys(req.files));
 
   const objkeys = Object.keys(req.files);
+
+  if (req.files[objkeys.length - 1] === undefined) {
+    const error = new HttpError("you need a photo");
+    return next(error);
+  }
 
   //   console.log(req.files);
   //   console.log(req.files[req.files.length - 1]);
