@@ -7,6 +7,7 @@ import { AuthContext } from "../shared/context/auth-context";
 import { useNavigate } from "react-router";
 
 import { useHttpClient } from "../shared/hooks/http-hook";
+import RoofingProjectsList from "./roofingProjects/RoofingProjectsList";
 
 const Home = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -17,20 +18,43 @@ const Home = () => {
 
   const [roofingProjects, setRoofingProjects] = useState();
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const responseData = sendRequest();
-      } catch (err) {}
-    };
-  }, []);
-
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
   const toggleDashboard = () => {
     navigate("/dashboard");
   };
+
+  useEffect(() => {
+    console.log("hi");
+    const fetchProjects = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/global/getProjects`
+        );
+
+        console.log(responseData);
+        //console.log(sieveRoofing);
+
+        const sieveRoofing = responseData.findProjects.filter(
+          (x) => x.type === "roofing"
+        );
+        const sieveSiding = responseData.findProjects.filter(
+          (x) => x.type === "siding"
+        );
+        const sieveCarpentry = responseData.findProjects.filter(
+          (x) => x.type === "carpentry"
+        );
+        setRoofingProjects(sieveRoofing);
+        setCarpentryProjects(sieveCarpentry);
+        setSidingProjects(sieveCarpentry);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchProjects();
+  }, [sendRequest]);
 
   return (
     <div>
@@ -77,6 +101,12 @@ const Home = () => {
           <span className="tie-right"></span>{" "}
         </div>
       </div>
+
+      {roofingProjects && (
+        <div className="">
+          <RoofingProjectsList />
+        </div>
+      )}
     </div>
   );
 };
