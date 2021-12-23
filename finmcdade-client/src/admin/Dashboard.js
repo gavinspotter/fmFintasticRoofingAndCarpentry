@@ -294,7 +294,11 @@ const Dashboard = () => {
                   type="file"
                   accept=".jpg,.png,.jpeg"
                 />
-                <button type="button" onClick={() => arr2.remove(index)}>
+                <button
+                  className="dashboard-xButton"
+                  type="button"
+                  onClick={() => arr2.remove(index)}
+                >
                   <IoCloseOutline />
                 </button>
                 {/* <Controller
@@ -328,7 +332,11 @@ const Dashboard = () => {
                   defaultValue={null}
                   {...register(`materialsUsed.${index}.dimensions`)}
                 />
-                <button type="button" onClick={() => arr1.remove(index)}>
+                <button
+                  className="dashboard-xButton"
+                  type="button"
+                  onClick={() => arr1.remove(index)}
+                >
                   <IoCloseOutline />
                 </button>
                 {/* <Controller

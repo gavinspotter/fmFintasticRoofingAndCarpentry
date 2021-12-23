@@ -338,6 +338,14 @@ body {
     margin: 2rem; }
     .dashboard-description-indiv {
       vertical-align: top; }
+  .dashboard-xButton {
+    margin: 1rem;
+    padding: 0.5rem;
+    padding-bottom: 0.25rem;
+    background-color: black;
+    color: white;
+    border-radius: 5rem;
+    border: none; }
   .dashboard-coverPhoto {
     margin: 2rem; }
     .dashboard-coverPhoto-inputIcon {

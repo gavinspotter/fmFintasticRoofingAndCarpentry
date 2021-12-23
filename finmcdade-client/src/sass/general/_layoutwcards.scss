@@ -291,6 +291,16 @@
     }
   }
 
+  &-xButton {
+    margin: 1rem;
+    padding: 0.5rem;
+    padding-bottom: 0.25rem;
+    background-color: black;
+    color: white;
+    border-radius: 5rem;
+    border: none;
+  }
+
   &-coverPhoto {
     margin: 2rem;
 
