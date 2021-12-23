@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import titleImg from "../img/fintastic_home.jpeg";
 import "../css/style.css";
@@ -6,7 +6,25 @@ import { IoCreateOutline, IoDuplicateOutline } from "react-icons/io5";
 import { AuthContext } from "../shared/context/auth-context";
 import { useNavigate } from "react-router";
 
+import { useHttpClient } from "../shared/hooks/http-hook";
+
 const Home = () => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  const [carpentryProjects, setCarpentryProjects] = useState();
+
+  const [sidingProjects, setSidingProjects] = useState();
+
+  const [roofingProjects, setRoofingProjects] = useState();
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const responseData = sendRequest();
+      } catch (err) {}
+    };
+  }, []);
+
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
