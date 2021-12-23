@@ -12,6 +12,8 @@ const formData = require("express-form-data");
 
 const adminRoutes = require("./routes/admin-routes");
 
+const globalRoutes = require("./routes/global-routes");
+
 const HttpError = require("./models/HttpError");
 
 if (process.env.PROXY === "https://") {
@@ -43,6 +45,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/admin", adminRoutes);
+
+app.use("/api/global", globalRoutes);
 
 app.use((req, res, next) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html"));
