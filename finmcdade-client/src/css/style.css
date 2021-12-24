@@ -198,7 +198,8 @@ body {
       margin: auto;
       margin-top: 10rem;
       margin-bottom: 10rem;
-      width: 105rem; }
+      width: 105rem;
+      text-align: center; }
       .home-roofingBlock-listBlock-title {
         font-size: 4rem;
         color: wheat;
@@ -209,20 +210,23 @@ body {
         width: fit-content;
         block-size: fit-content; }
     .home-roofingBlock-itemBlock {
+      position: relative;
       vertical-align: top;
       display: inline-block;
       width: 40rem;
       background-color: white;
       margin-bottom: 5rem;
-      padding: 3rem;
+      padding: 1.5rem;
       height: 20rem;
       margin: 3rem;
-      font-family: "Palatino, URW Palladio L, serif"; }
+      font-family: "Palatino, URW Palladio L, serif";
+      overflow: hidden; }
       .home-roofingBlock-itemBlock-text {
         width: 13rem;
-        height: 18rem; }
+        height: 18rem;
+        overflow: hidden; }
       .home-roofingBlock-itemBlock-imgBlock {
-        width: 25rem;
+        width: 20rem;
         height: 20rem;
         display: flex;
         justify-content: center;
@@ -230,8 +234,20 @@ body {
         margin-right: 2rem; }
         .home-roofingBlock-itemBlock-imgBlock-img {
           margin: auto;
-          max-width: 25rem;
+          max-width: 20rem;
           max-height: 20rem; }
+  .home-sidingBlock {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    overflow: auto; }
+  .home-carpentryBlock {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: gray;
+    overflow: auto; }
 
 .tie-left {
   width: 10rem;
@@ -461,3 +477,20 @@ body {
   vertical-align: top;
   margin-bottom: 1rem;
   margin-top: 3rem; }
+
+.cardTie-bottom-right {
+  width: 15rem;
+  height: 4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 2rem;
+  position: absolute;
+  bottom: -2rem;
+  right: -5.2rem;
+  transform: rotate(-45deg);
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  background-color: black; }
+  .cardTie-bottom-right-font {
+    transform: rotate(45deg); }

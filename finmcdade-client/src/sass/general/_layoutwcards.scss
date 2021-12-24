@@ -109,6 +109,7 @@
       margin-top: 10rem;
       margin-bottom: 10rem;
       width: 105rem;
+      text-align: center;
       &-title {
         font-size: 4rem;
         color: wheat;
@@ -122,24 +123,26 @@
     }
 
     &-itemBlock {
+      position: relative;
       vertical-align: top;
       display: inline-block;
       width: 40rem;
       background-color: white;
       margin-bottom: 5rem;
-      padding: 3rem;
+      padding: 1.5rem;
       height: 20rem;
       margin: 3rem;
       font-family: "Palatino, URW Palladio L, serif";
       //white-space: normal;
       //block-size: fit-content;
-      //overflow: auto;
+      overflow: hidden;
       &-text {
         width: 13rem;
         height: 18rem;
+        overflow: hidden;
       }
       &-imgBlock {
-        width: 25rem;
+        width: 20rem;
         height: 20rem;
         display: flex;
         justify-content: center;
@@ -149,11 +152,26 @@
 
         &-img {
           margin: auto;
-          max-width: 25rem;
+          max-width: 20rem;
           max-height: 20rem;
         }
       }
     }
+  }
+
+  &-sidingBlock {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    overflow: auto;
+  }
+  &-carpentryBlock {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: gray;
+    overflow: auto;
   }
 }
 
@@ -469,4 +487,23 @@
   vertical-align: top;
   margin-bottom: 1rem;
   margin-top: 3rem;
+}
+
+.cardTie-bottom-right {
+  width: 15rem;
+  height: 4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 2rem;
+  position: absolute;
+  bottom: -2rem;
+  right: -5.2rem;
+  transform: rotate(-45deg);
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  background-color: black;
+  &-font {
+    transform: rotate(45deg);
+  }
 }

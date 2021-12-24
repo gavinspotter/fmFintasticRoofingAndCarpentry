@@ -1,4 +1,5 @@
 import React from "react";
+import { IoImagesOutline } from "react-icons/io5";
 
 const RoofingProjectsItem = (props) => {
   return (
@@ -14,6 +15,7 @@ const RoofingProjectsItem = (props) => {
       </div>
       <div className="home-roofingBlock-itemBlock-text inlineBlock verticalAlign">
         <p>{props.description}</p>
+
         {/* <div>
           {props.materialsUsed.map((x) => (
             <div>
@@ -28,6 +30,13 @@ const RoofingProjectsItem = (props) => {
           ))}
         </div> */}
       </div>
+      {props.photosPhotoBucketIds.length > 0 && (
+        <div className="cardTie-bottom-right">
+          <div className="cardTie-bottom-right-font">
+            +{props.photosPhotoBucketIds.length} <IoImagesOutline />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

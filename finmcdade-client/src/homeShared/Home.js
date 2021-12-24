@@ -28,7 +28,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    console.log("hi");
     const fetchProjects = async () => {
       try {
         const responseData = await sendRequest(
@@ -50,8 +49,8 @@ const Home = () => {
 
         console.log(sieveSiding);
         setRoofingProjects(sieveRoofing);
-        setCarpentryProjects(sieveSiding);
-        setSidingProjects(sieveCarpentry);
+        setCarpentryProjects(sieveCarpentry);
+        setSidingProjects(sieveSiding);
       } catch (err) {
         console.log(err);
       }
@@ -112,12 +111,12 @@ const Home = () => {
         </div>
       )}
       {sidingProjects && sidingProjects.length > 0 && (
-        <div className="home-roofingBlock">
+        <div className="home-sidingBlock">
           <SidingProjectsList items={sidingProjects} />
         </div>
       )}
       {carpentryProjects && carpentryProjects.length > 0 && (
-        <div className="home-roofingBlock">
+        <div className="home-carpentryBlock">
           <CarpentryProjectsList items={carpentryProjects} />
         </div>
       )}

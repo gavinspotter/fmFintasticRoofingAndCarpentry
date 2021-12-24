@@ -116,20 +116,24 @@ const Dashboard = () => {
       //   }
       // }
 
-      if (data.pics) {
+      if (data.pics || data.pics.length > 0) {
+        console.log(file);
         for (let i = 0; i < data.pics.length; i++) {
           formData.append(i, data.pics[i].picture[0]);
         }
-      }
-
-      if (data.pics.length > 0) {
-        console.log(data.pics.length);
-        formData.append(data.pics.length, data.picture[0]);
-      } else if (data.pics.length === 0) {
-        console.log(data.pics.length);
-        console.log(file);
+        formData.append(data.pics.length, file);
+      } else if (!data.pics) {
         formData.append("0", file);
       }
+
+      // if (data.pics.length > 0) {
+      //   console.log(data.pics.length);
+      //   formData.append(data.pics.length, data.picture[0]);
+      // } else if (data.pics.length === 0) {
+      //   console.log(data.pics.length);
+      //   console.log(file);
+      //   formData.append("0", file);
+      // }
       formData.append("materialsUsed", JSON.stringify(data.materialsUsed));
 
       formData.append("type", data.type);
