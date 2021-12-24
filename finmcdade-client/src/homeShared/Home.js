@@ -8,6 +8,8 @@ import { useNavigate } from "react-router";
 
 import { useHttpClient } from "../shared/hooks/http-hook";
 import RoofingProjectsList from "./roofingProjects/RoofingProjectsList";
+import SidingProjectsList from "./sidingProjects/SidingProjectsList";
+import CarpentryProjectsList from "./carpentryProjects/CarpentryProjectsList";
 
 const Home = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -45,8 +47,10 @@ const Home = () => {
         const sieveCarpentry = responseData.findProjects.filter(
           (x) => x.type === "carpentry"
         );
+
+        console.log(sieveSiding);
         setRoofingProjects(sieveRoofing);
-        setCarpentryProjects(sieveCarpentry);
+        setCarpentryProjects(sieveSiding);
         setSidingProjects(sieveCarpentry);
       } catch (err) {
         console.log(err);
@@ -102,9 +106,19 @@ const Home = () => {
         </div>
       </div>
 
-      {roofingProjects && (
-        <div className="">
-          <RoofingProjectsList />
+      {roofingProjects && roofingProjects.length > 0 && (
+        <div className="home-roofingBlock">
+          <RoofingProjectsList items={roofingProjects} />
+        </div>
+      )}
+      {sidingProjects && sidingProjects.length > 0 && (
+        <div className="home-roofingBlock">
+          <SidingProjectsList items={sidingProjects} />
+        </div>
+      )}
+      {carpentryProjects && carpentryProjects.length > 0 && (
+        <div className="home-roofingBlock">
+          <CarpentryProjectsList items={carpentryProjects} />
         </div>
       )}
     </div>

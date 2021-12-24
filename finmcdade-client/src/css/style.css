@@ -103,6 +103,9 @@ body {
 .marginleft {
   margin-left: 2rem; }
 
+.inlineBlock {
+  display: inline-block; }
+
 .home {
   position: relative;
   width: 100%;
@@ -182,6 +185,38 @@ body {
     text-align: center;
     border-radius: 5rem;
     background-color: white; }
+  .home-roofingBlock {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: maroon;
+    overflow: auto; }
+    .home-roofingBlock-listBlock {
+      margin: auto;
+      margin-top: 10rem;
+      margin-bottom: 10rem;
+      width: 105rem; }
+      .home-roofingBlock-listBlock-title {
+        font-size: 4rem;
+        color: wheat;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5rem;
+        font-family: "Palatino, URW Palladio L, serif";
+        width: fit-content;
+        block-size: fit-content; }
+    .home-roofingBlock-itemBlock {
+      vertical-align: top;
+      display: inline-block;
+      width: 40rem;
+      background-color: white;
+      margin-bottom: 5rem;
+      padding: 3rem;
+      height: 20rem;
+      margin: 3rem; }
+      .home-roofingBlock-itemBlock-img {
+        max-width: 20rem;
+        max-height: 20rem; }
 
 .tie-left {
   width: 10rem;

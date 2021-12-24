@@ -122,12 +122,14 @@ const Dashboard = () => {
         }
       }
 
-      formData.append(data.pics.length, data.picture[0]);
-      // if (data.pics) {
-
-      // } else {
-      //   formData.append("0", data.picture[0]);
-      // }
+      if (data.pics.length > 0) {
+        console.log(data.pics.length);
+        formData.append(data.pics.length, data.picture[0]);
+      } else if (data.pics.length === 0) {
+        console.log(data.pics.length);
+        console.log(file);
+        formData.append("0", file);
+      }
       formData.append("materialsUsed", JSON.stringify(data.materialsUsed));
 
       formData.append("type", data.type);
