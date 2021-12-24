@@ -130,10 +130,28 @@
       padding: 3rem;
       height: 20rem;
       margin: 3rem;
+      font-family: "Palatino, URW Palladio L, serif";
+      //white-space: normal;
+      //block-size: fit-content;
+      //overflow: auto;
+      &-text {
+        width: 13rem;
+        height: 18rem;
+      }
+      &-imgBlock {
+        width: 25rem;
+        height: 20rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 2rem;
+        // margin-bottom: 5rem;
 
-      &-img {
-        max-width: 20rem;
-        max-height: 20rem;
+        &-img {
+          margin: auto;
+          max-width: 25rem;
+          max-height: 20rem;
+        }
       }
     }
   }

@@ -3,16 +3,18 @@ import React from "react";
 const RoofingProjectsItem = (props) => {
   return (
     <div className="home-roofingBlock-itemBlock">
-      <div className="inlineBlock">
-        <img
-          className="home-roofingBlock-itemBlock-img"
-          src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${props.coverPhotoBucketId}`}
-          alt={props.details}
-        />
+      <div className="inlineBlock verticalAlign">
+        <div className="home-roofingBlock-itemBlock-imgBlock">
+          <img
+            className="home-roofingBlock-itemBlock-imgBlock-img"
+            src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${props.coverPhotoBucketId}`}
+            alt={props.details}
+          />
+        </div>
       </div>
-      <div className="inlineBlock">
-        <div>{props.description}</div>
-        <div>
+      <div className="home-roofingBlock-itemBlock-text inlineBlock verticalAlign">
+        <p>{props.description}</p>
+        {/* <div>
           {props.materialsUsed.map((x) => (
             <div>
               <span>{x.name}</span>
@@ -24,7 +26,7 @@ const RoofingProjectsItem = (props) => {
           {props.photosPhotoBucketIds.map((x) => (
             <div>{x}</div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
