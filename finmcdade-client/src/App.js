@@ -13,6 +13,9 @@ import { AuthContext } from "./shared/context/auth-context";
 import Dashboard from "./admin/Dashboard";
 import Home from "./homeShared/Home";
 import Login from "./admin/Login";
+import SidingProjectLook from "./homeShared/sidingProjects/SidingProjectLook";
+import RoofingProjectLook from "./homeShared/roofingProjects/RoofingProjectLook";
+import CarpentryProjectLook from "./homeShared/carpentryProjects/CarpentryProjectLook";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -22,6 +25,9 @@ const App = () => {
   if (token) {
     theRoutes = (
       <Routes>
+        <Route path="/siding/:sId" element={<SidingProjectLook />} />
+        <Route path="/roofing/:rId" element={<RoofingProjectLook />} />
+        <Route path="/carpentry/:cId" element={<CarpentryProjectLook />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Dashboard />} />
@@ -31,6 +37,9 @@ const App = () => {
   if (!token) {
     theRoutes = (
       <Routes>
+        <Route path="/siding/:sId" element={<SidingProjectLook />} />
+        <Route path="/roofing/:rId" element={<RoofingProjectLook />} />
+        <Route path="/carpentry/:cId" element={<CarpentryProjectLook />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />

@@ -494,3 +494,8 @@ body {
   background-color: black; }
   .cardTie-bottom-right-font {
     transform: rotate(45deg); }
+
+.projectLook {
+  width: 100%;
+  height: 100vh;
+  background-color: maroon; }

@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get("/getProjects", globalController.getProjects);
 
+router.get("/getAProject/:pId", globalController.getAProject);
+
 module.exports = router;

@@ -15,4 +15,21 @@ const getProjects = async (req, res, next) => {
   res.json({ findProjects });
 };
 
+const getAProject = async (req, res, next) => {
+  const projectId = req.params.pId;
+
+  let findProject;
+
+  try {
+    findProject = await Projects.findById(projectId);
+  } catch (err) {
+    const error = new HttpError("something went wrong finding that project");
+    return next(error);
+  }
+
+  res.json({ findProject });
+};
+
 exports.getProjects = getProjects;
+
+exports.getAProject = getAProject;

@@ -1,5 +1,6 @@
 import React from "react";
 import { IoImagesOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const RoofingProjectsItem = (props) => {
   return (
@@ -31,11 +32,13 @@ const RoofingProjectsItem = (props) => {
         </div> */}
       </div>
       {props.photosPhotoBucketIds.length > 0 && (
-        <div className="cardTie-bottom-right">
-          <div className="cardTie-bottom-right-font">
-            +{props.photosPhotoBucketIds.length} <IoImagesOutline />
+        <Link to={`/roofing/${props._id}`}>
+          <div className="cardTie-bottom-right">
+            <div className="cardTie-bottom-right-font">
+              +{props.photosPhotoBucketIds.length} <IoImagesOutline />
+            </div>
           </div>
-        </div>
+        </Link>
       )}
     </div>
   );
