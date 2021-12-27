@@ -496,6 +496,122 @@ body {
     transform: rotate(45deg); }
 
 .projectLook {
+  position: relative;
   width: 100%;
   height: 100vh;
-  background-color: maroon; }
+  background-color: maroon;
+  overflow: auto; }
+  .projectLook-box {
+    margin-top: 10rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80rem;
+    min-height: 50rem;
+    background: whitesmoke;
+    margin-bottom: 10rem; }
+  .projectLook-carousel {
+    display: block;
+    max-height: 30rem;
+    max-width: 50rem;
+    margin: auto; }
+    .projectLook-carousel-navBttn {
+      content: "next"; }
+
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.carousel {
+  padding-top: 3rem;
+  margin: auto;
+  width: 70rem;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px; }
+
+.carousel__viewport {
+  width: 70rem;
+  height: 30rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; }
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 50rem; }
+
+.carousel__slide:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -40%, 70px);
+  color: #fff;
+  font-size: 2em; }
+
+.carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center; }
+
+@media (hover: hover) {
+  .carousel__snapper {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite; }
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+    animation-name: none; } }
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+  animation-name: none; }
+
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  top: 18rem;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+  background-color: #494949;
+  color: whitesmoke;
+  z-index: 1; }
+
+.coverUp {
+  z-index: 2;
+  position: absolute;
+  top: 18rem;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+  background-color: #494949;
+  color: whitesmoke; }
+
+.carousel__prev {
+  left: 0rem;
+  content: ">";
+  color: whitesmoke; }
+
+.carousel__next {
+  right: 0rem; }
