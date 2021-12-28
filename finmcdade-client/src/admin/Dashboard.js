@@ -3,6 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useHttpClient } from "../shared/hooks/http-hook";
 
 import {
+  IoArrowBackOutline,
   IoAttachOutline,
   IoCheckboxOutline,
   IoCloseOutline,
@@ -20,6 +21,7 @@ import {
 import { useNavigate } from "react-router";
 import ErrorModal from "../shared/UIElements/ErrorModal";
 import LoadingSpinner from "../shared/UIElements/LoadingSpinner";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [file, setFile] = useState();
@@ -180,6 +182,11 @@ const Dashboard = () => {
     <div className="dashboard">
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && <LoadingSpinner asOverlay />}
+      <Link to="/">
+        <div className="projectLook-goBack projectLook-goBack-dash">
+          <IoArrowBackOutline />
+        </div>
+      </Link>
       <div onClick={homePageToggle} className="dashboard-homeNav">
         <svg width="0" height="0">
           <linearGradient

@@ -7873,6 +7873,30 @@ body {
   height: 100vh;
   background-color: maroon;
   overflow: auto; }
+  .projectLook-line {
+    width: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem; }
+  .projectLook-listText {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; }
+  .projectLook-addToList {
+    font-size: 4rem; }
+  .projectLook-goBack {
+    position: absolute;
+    border-radius: 6rem;
+    width: 6rem;
+    height: 6rem;
+    background-color: whitesmoke;
+    top: 28rem;
+    left: 8rem;
+    text-align: center;
+    font-size: 3.25rem;
+    color: grey; }
+    .projectLook-goBack-dash {
+      font-size: 4rem; }
   .projectLook-box {
     margin-top: 10rem;
     margin-right: auto;

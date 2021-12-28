@@ -514,6 +514,38 @@
   height: 100vh;
   background-color: maroon;
   overflow: auto;
+  &-line {
+    width: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    //margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  &-listText {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-addToList {
+    font-size: 4rem;
+  }
+
+  &-goBack {
+    position: absolute;
+    border-radius: 6rem;
+    width: 6rem;
+    height: 6rem;
+    background-color: whitesmoke;
+    top: 28rem;
+    left: 8rem;
+    text-align: center;
+    font-size: 3.25rem;
+    color: grey;
+    &-dash {
+      font-size: 4rem;
+    }
+  }
 
   //   * {
   //     box-sizing: border-box;

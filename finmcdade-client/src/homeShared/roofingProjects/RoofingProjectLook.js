@@ -1,6 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import {
+  IoAddCircleOutline,
+  IoAddOutline,
+  IoArrowBackOutline,
+} from "react-icons/io5";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
@@ -33,6 +39,11 @@ const RoofingProjectLook = () => {
   return (
     <div className="use-bootstrap">
       <div className="projectLook">
+        <Link to="/">
+          <div className="projectLook-goBack">
+            <IoArrowBackOutline />
+          </div>
+        </Link>
         <div className="projectLook-box">
           <div>
             {roofing && (
@@ -41,7 +52,7 @@ const RoofingProjectLook = () => {
                   <Carousel.Item interval={100000000}>
                     <div className="projectLook-carousel-box">
                       <img
-                        className="d-block w-75 projectLook-carousel"
+                        className="d-block projectLook-carousel"
                         src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${roofing.coverPhotoBucketId}`}
                         alt="First slide"
                       />
@@ -65,7 +76,22 @@ const RoofingProjectLook = () => {
           {roofing && (
             <div>
               <div className="projectLook-text-job">
-                <span className="inlineBlock">description: </span>{" "}
+                <div className="projectLook-listText">
+                  {" "}
+                  Do you like this job? Add it to your list and we'll bring it
+                  up during your free consultation.{" "}
+                  <div className="projectLook-addToList">
+                    <IoAddCircleOutline />{" "}
+                  </div>{" "}
+                </div>
+                {/* <br />
+                <br /> */}
+                <div className="projectLook-line">
+                  {" "}
+                  <hr />{" "}
+                </div>
+
+                {/* <span className="inlineBlock">description: </span>{" "} */}
                 <p className="inlineBlock">{roofing.description}</p>
                 <div>
                   {roofing.materialsUsed.map((x) => (
@@ -75,7 +101,6 @@ const RoofingProjectLook = () => {
                       <h2 className="inlineBlock">{x.dimensions}</h2>
                     </div>
                   ))}
-                  <span> </span>
                 </div>
               </div>
             </div>
