@@ -137,22 +137,22 @@
       //block-size: fit-content;
       overflow: hidden;
       &-text {
-        width: 13rem;
+        width: 11rem;
         height: 18rem;
         overflow: hidden;
       }
       &-imgBlock {
-        width: 20rem;
+        width: 24rem;
         height: 20rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: 2rem;
+        //margin-right: 2rem;
         // margin-bottom: 5rem;
 
         &-img {
           margin: auto;
-          max-width: 20rem;
+          max-width: 23rem;
           max-height: 20rem;
         }
       }

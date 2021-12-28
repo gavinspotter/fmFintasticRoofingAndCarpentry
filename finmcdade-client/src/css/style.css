@@ -7594,19 +7594,18 @@ body {
       font-family: "Palatino, URW Palladio L, serif";
       overflow: hidden; }
       .home-roofingBlock-itemBlock-text {
-        width: 13rem;
+        width: 11rem;
         height: 18rem;
         overflow: hidden; }
       .home-roofingBlock-itemBlock-imgBlock {
-        width: 20rem;
+        width: 24rem;
         height: 20rem;
         display: flex;
         justify-content: center;
-        align-items: center;
-        margin-right: 2rem; }
+        align-items: center; }
         .home-roofingBlock-itemBlock-imgBlock-img {
           margin: auto;
-          max-width: 20rem;
+          max-width: 23rem;
           max-height: 20rem; }
   .home-sidingBlock {
     position: relative;

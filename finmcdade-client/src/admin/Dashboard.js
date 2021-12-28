@@ -1,7 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 
 import { useHttpClient } from "../shared/hooks/http-hook";
-
+import ReactCrop from "react-image-crop";
+import "react-image-crop/dist/ReactCrop.css";
 import {
   IoArrowBackOutline,
   IoAttachOutline,
@@ -10,6 +11,9 @@ import {
   IoHomeOutline,
   IoPowerOutline,
 } from "react-icons/io5";
+
+import Cropper from "react-cropper";
+import "cropperjs/dist/cropper.css";
 
 import { AuthContext } from "../shared/context/auth-context";
 import {
@@ -56,6 +60,8 @@ const Dashboard = () => {
     // image: null,
     // bulkImage: null,
   });
+
+  const [crop, setCrop] = useState({ aspect: 16 / 9 });
 
   const arr2 = useFieldArray({
     control: control,
@@ -104,8 +110,16 @@ const Dashboard = () => {
     }
   };
 
+  const cropperRef = useRef(null);
+  const onCrop = () => {
+    const imageElement = cropperRef.current;
+    const cropper = imageElement.cropper;
+    //console.log(cropper.getCroppedCanvas().toDataURL());
+  };
+
   const submitAProject = async (data) => {
     console.log(data);
+    const imageElement = cropperRef.current;
 
     try {
       //const fileContent = fs.readFileSync(data.image[0])
@@ -123,9 +137,22 @@ const Dashboard = () => {
         for (let i = 0; i < data.pics.length; i++) {
           formData.append(i, data.pics[i].picture[0]);
         }
-        formData.append(data.pics.length, file);
+        const sendBlob = imageElement.cropper.getCroppedCanvas().toDataURL();
+
+        var binary = atob(sendBlob.split(",")[1]),
+          array = [];
+        for (var i = 0; i < binary.length; i++)
+          array.push(binary.charCodeAt(i));
+        const getBlob = new Blob([new Uint8Array(array)], { type: file.type });
+
+        console.log(sendBlob);
+        formData.append(data.pics.length, getBlob);
       } else if (!data.pics) {
-        formData.append("0", file);
+        const sendBlob = imageElement.cropper
+          .getCroppedCanvas()
+          .toDataURL()
+          .dataURLtoBlob();
+        formData.append("0", sendBlob);
       }
 
       // if (data.pics.length > 0) {
@@ -177,6 +204,8 @@ const Dashboard = () => {
   const resetPic = () => {
     setResetIt(null);
   };
+
+  console.log(crop);
 
   return (
     <div className="dashboard">
@@ -271,6 +300,7 @@ const Dashboard = () => {
               <input
                 id="coverPhoto"
                 {...register("picture")}
+                ref={cropperRef}
                 type="file"
                 accept=".jpg,.png,.jpeg"
                 onChange={pickedHandler}
@@ -278,12 +308,23 @@ const Dashboard = () => {
               />
             </div>
             {previewUrl && (
-              <img
-                className="image-upload__preview"
-                src={previewUrl}
-                alt="preview"
-              />
+              <div>
+                <img
+                  className="image-upload__preview"
+                  src={previewUrl}
+                  alt="preview"
+                />
+                <div className="image-upload__preview">
+                  <Cropper
+                    src={previewUrl}
+                    initialAspectRatio={12 / 9}
+                    crop={onCrop}
+                    ref={cropperRef}
+                  />
+                </div>
+              </div>
             )}
+
             {/* <button type="button" onClick={pickImageHandler}> pick image</button> */}
 
             <br />
