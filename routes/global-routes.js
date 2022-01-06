@@ -7,4 +7,6 @@ router.get("/getProjects", globalController.getProjects);
 
 router.get("/getAProject/:pId", globalController.getAProject);
 
+router.post("/consultationRequest", globalController.consultationRequest);
+
 module.exports = router;

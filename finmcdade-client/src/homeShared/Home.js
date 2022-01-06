@@ -10,6 +10,7 @@ import { useHttpClient } from "../shared/hooks/http-hook";
 import RoofingProjectsList from "./roofingProjects/RoofingProjectsList";
 import SidingProjectsList from "./sidingProjects/SidingProjectsList";
 import CarpentryProjectsList from "./carpentryProjects/CarpentryProjectsList";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -86,7 +87,9 @@ const Home = () => {
           </div>
         )}
         <div className="home-aboutUs">
-          <div className="home-aboutUs-consultation">consultation</div>
+          <Link to="/consultation">
+            <div className="home-aboutUs-consultation">consultation</div>
+          </Link>
         </div>
 
         <div className="home-carpentry">

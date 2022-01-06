@@ -16,6 +16,7 @@ import Login from "./admin/Login";
 import SidingProjectLook from "./homeShared/sidingProjects/SidingProjectLook";
 import RoofingProjectLook from "./homeShared/roofingProjects/RoofingProjectLook";
 import CarpentryProjectLook from "./homeShared/carpentryProjects/CarpentryProjectLook";
+import Consultation from "./homeShared/Consultation";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -25,6 +26,7 @@ const App = () => {
   if (token) {
     theRoutes = (
       <Routes>
+        <Route path="/consultation" element={<Consultation />} />
         <Route path="/siding/:sId" element={<SidingProjectLook />} />
         <Route path="/roofing/:rId" element={<RoofingProjectLook />} />
         <Route path="/carpentry/:cId" element={<CarpentryProjectLook />} />
@@ -37,6 +39,7 @@ const App = () => {
   if (!token) {
     theRoutes = (
       <Routes>
+        <Route path="/consultation" element={<Consultation />} />
         <Route path="/siding/:sId" element={<SidingProjectLook />} />
         <Route path="/roofing/:rId" element={<RoofingProjectLook />} />
         <Route path="/carpentry/:cId" element={<CarpentryProjectLook />} />

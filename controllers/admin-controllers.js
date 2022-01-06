@@ -2,11 +2,13 @@ const HttpError = require("../models/HttpError");
 
 const Admin = require("../models/Admin");
 const aws = require("aws-sdk"); //"^2.2.41"
-
+var sesTransport = require("nodemailer-ses-transport");
 const Projects = require("../models/Projects");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+var sesTransport = require("nodemailer-ses-transport");
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -337,6 +339,101 @@ const deleteProject = async (req, res, next) => {
   res.json({ findUser });
 };
 
+const sendEmail = async (req, res, next) => {
+  const { message } = req.body;
+
+  //   const SES_CONFIG = {
+  //     accessKeyId: process.env.AWS_IAM_KEY,
+  //     secretAccessKey: process.env.AWS_IAM_SECRET,
+  //     region: "us-east-1",
+  //   };
+
+  //   const AWS_SES = new aws.SES(SES_CONFIG);
+
+  //   try {
+  //     const params = {
+  //       Source: "gavinspotter@cloversoftwarecompany.com",
+  //       Destination: {
+  //         ToAddresses: ["gavinspotter1227@gmail.com"],
+  //       },
+  //       ReplyToAddresses: [],
+  //       Message: {
+  //         Body: {
+  //           Text: {
+  //             Charset: "UTF-8",
+  //             Data: "This is a test!",
+  //           },
+
+  //           Html: {
+  //             Charset: "UTF-8",
+  //             Data: "This is the body of my email!",
+  //           },
+  //         },
+  //         Subject: {
+  //           Charset: "UTF-8",
+  //           Data: `test!`,
+  //         },
+  //       },
+  //     };
+  //     AWS_SES.sendEmail(params);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+
+  //   var mailOptions = {
+  //     from: "gavinspotter@cloversoftwarecompany.com",
+  //     to: "gavinspotter1227@gmail.com",
+  //     text: "This is some text",
+  //     html: "<b>This is some HTML</b>",
+  //   };
+  //   function callback(error, info) {
+  //     if (error) {
+  //       console.log(error);
+  //     } else {
+  //       console.log("Message sent: " + info.response);
+  //     }
+  //   }
+  const ses = new aws.SES({
+    apiVersion: "2010-12-01",
+    region: "us-east-1",
+    accessKeyId: process.env.AWS_IAM_KEY,
+    secretAccessKey: process.env.AWS_IAM_SECRET,
+  });
+
+  let transporter = nodemailer.createTransport({
+    SES: { ses, aws },
+  });
+
+  transporter.sendMail(
+    {
+      from: "gavinspotter@cloversoftwarecompany.com",
+      to: "gavinspotter1227@gmail.com",
+      subject: "Message",
+      text: "I hope this message gets sent!",
+      ses: {
+        // optional extra arguments for SendRawEmail
+      },
+    },
+    (err, info) => {
+      console.log(err);
+      //   console.log(info.envelope);
+      //   console.log(info.messageId);
+    }
+  );
+  // Send e-mail using AWS SES
+  //   mailOptions.subject = "Nodemailer SES transporter";
+  //   var sesTransporter = nodemailer.createTransport(
+  //     sesTransport({
+  //       accessKeyId: process.env.AWS_IAM_KEY,
+  //       secretAccessKey: process.env.AWS_IAM_SECRET,
+  //       region: "us-east-1",
+  //     })
+  //   );
+  //   sesTransporter.sendMail(mailOptions, callback);
+
+  res.json({ message: "success" });
+};
+
 exports.signup = signup;
 
 exports.login = login;
@@ -344,3 +441,5 @@ exports.login = login;
 exports.createProject = createProject;
 
 exports.deleteProject = deleteProject;
+
+exports.sendEmail = sendEmail;

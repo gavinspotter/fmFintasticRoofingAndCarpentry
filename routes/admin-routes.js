@@ -10,6 +10,8 @@ router.post("/signup", adminController.signup);
 
 router.post("/login", adminController.login);
 
+router.post("/sendEmail", adminController.sendEmail);
+
 router.use(checkAuth);
 
 router.post("/createProject", adminController.createProject);
