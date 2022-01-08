@@ -61,9 +61,10 @@ const consultationRequest = async (req, res, next) => {
   transporter.sendMail(
     {
       from: "fin@fintasticcarpentry.com",
-      to: email,
+      to: [email, "fin@fintasticcarpentry.com"],
       subject: "test",
       text: `
+      
       ${firstName}
       ${lastName}
       ${phoneNumber}
@@ -90,6 +91,8 @@ const consultationRequest = async (req, res, next) => {
 
   res.json({ message: "success" });
 };
+
+exports;
 
 exports.getProjects = getProjects;
 

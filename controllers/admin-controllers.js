@@ -2,13 +2,12 @@ const HttpError = require("../models/HttpError");
 
 const Admin = require("../models/Admin");
 const aws = require("aws-sdk"); //"^2.2.41"
-var sesTransport = require("nodemailer-ses-transport");
+
 const Projects = require("../models/Projects");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-var sesTransport = require("nodemailer-ses-transport");
 
 const { v4: uuidv4 } = require("uuid");
 
