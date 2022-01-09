@@ -24,7 +24,7 @@ const SidingProjectLook = () => {
   useEffect(() => {
     const fetchAProject = async () => {
       const requestData = await sendRequest(
-        `http://localhost:5000/api/global/getAProject/${projectId}`
+        `${process.env.REACT_APP_BACKEND_URL}/global/getAProject/${projectId}`
       );
       setSiding(requestData.findProject);
     };

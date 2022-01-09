@@ -170,7 +170,7 @@ const Dashboard = () => {
       //formData.append("materialsUsed");
 
       await sendRequest(
-        `http://localhost:5000/api/admin/createProject`,
+        `${process.env.REACT_APP_BACKEND_URL}/admin/createProject`,
         "POST",
         // JSON.stringify({
         //   name: data.name,

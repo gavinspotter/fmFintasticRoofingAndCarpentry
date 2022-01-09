@@ -32,7 +32,7 @@ const Home = () => {
     const fetchProjects = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/global/getProjects`
+          `${process.env.REACT_APP_BACKEND_URL}/global/getProjects`
         );
 
         console.log(responseData);

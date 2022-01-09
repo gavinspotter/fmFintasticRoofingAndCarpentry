@@ -54,7 +54,7 @@ const Consultation = () => {
     console.log(data.email);
     try {
       await sendRequest(
-        `http://localhost:5000/api/global/consultationRequest`,
+        `${process.env.REACT_APP_BACKEND_URL}/global/consultationRequest`,
         "POST",
         JSON.stringify({
           firstName: data.firstName,
