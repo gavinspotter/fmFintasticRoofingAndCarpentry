@@ -6,8 +6,28 @@
   &-img {
     object-fit: cover;
     width: 100%;
-    min-height: 100vh;
+    min-height: 102vh;
     max-height: 100%;
+  }
+  &-mobileCatagories {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    //margin-top: 45rem;
+  }
+
+  &-cBox {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-size: 3.2rem;
+    font-family: "Palatino, URW Palladio L, serif";
+    margin-top: 2.7rem;
   }
 
   &-aboutUs {
@@ -332,6 +352,9 @@
   background-color: maroon;
   position: relative;
   overflow: auto;
+
+  &-delete {
+  }
 
   &-homeNav {
     position: absolute;
@@ -1063,9 +1086,13 @@
   .dashboard {
     width: 100%;
     height: 100vh;
-    background-color: maroon;
+
     position: relative;
     overflow: auto;
+    font-family: "Palatino, URW Palladio L, serif";
+    &-font {
+      font-family: "Palatino, URW Palladio L, serif";
+    }
 
     &-homeNav {
       position: absolute;
@@ -1110,6 +1137,7 @@
     }
 
     &-description {
+      font-family: "Palatino, URW Palladio L, serif";
       margin: 2rem;
       &-indiv {
         vertical-align: top;

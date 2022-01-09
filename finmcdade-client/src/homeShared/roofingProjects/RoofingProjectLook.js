@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import {
   IoAddCircleOutline,
   IoAddOutline,
   IoArrowBackOutline,
+  IoBackspaceOutline,
 } from "react-icons/io5";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../shared/context/auth-context";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
@@ -18,6 +20,8 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 const RoofingProjectLook = () => {
   const projectId = useParams().rId;
 
+  const auth = useContext(AuthContext);
+
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   //   const [slideIndex, setSlideIndex] = useState(1);
@@ -25,6 +29,19 @@ const RoofingProjectLook = () => {
   //   const slides = document.getElementsByClassName("projectLook-carousel");
 
   const [roofing, setRoofing] = useState();
+
+  const deleteProject = async () => {
+    try {
+      await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/admin/deleteProject/${projectId}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+    } catch (err) {}
+  };
 
   useEffect(() => {
     const fetchAProject = async () => {
@@ -45,6 +62,9 @@ const RoofingProjectLook = () => {
           </div>
         </Link>
         <div className="projectLook-box">
+          {/* <div>
+            <IoBackspaceOutline/>
+            </div> */}
           <div>
             {roofing && (
               <div className="projectLook-carousel-box">

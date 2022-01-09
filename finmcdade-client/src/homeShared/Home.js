@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import titleImg from "../img/fintastic_home.jpeg";
+import titleImg from "../img/fintasticCover.JPG";
 import "../css/style.css";
 import { IoCreateOutline, IoDuplicateOutline } from "react-icons/io5";
 import { AuthContext } from "../shared/context/auth-context";
@@ -87,6 +87,13 @@ const Home = () => {
           </div>
         )}
         <div className="home-aboutUs">
+          <div className="home-cBox italicFont">
+            {/* <label className="italicFont"> - Fintastic - </label> */}
+            Let us serve you <br /> New England!
+            <br /> We're <br /> - Fintastic -
+            {/* <br />{" "}
+            Carpentry, Roofing <br /> and Siding! */}
+          </div>
           <Link to="/consultation">
             <div className="home-aboutUs-consultation">consultation</div>
           </Link>
