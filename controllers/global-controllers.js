@@ -62,7 +62,7 @@ const consultationRequest = async (req, res, next) => {
     {
       from: "fin@fintasticcarpentry.com",
       to: [email, "fin@fintasticcarpentry.com"],
-      subject: "test",
+      subject: "Fintastic Roofing and Carpentry Consultation",
       text: `
       
       ${firstName}
@@ -76,6 +76,7 @@ const consultationRequest = async (req, res, next) => {
       ${hour}
       ${date}
       ${details}
+
       Thank You
       `,
       ses: {

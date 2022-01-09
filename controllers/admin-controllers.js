@@ -32,7 +32,6 @@ const signup = async (req, res, next) => {
   let hashedPassword;
 
   try {
-    console.log(password);
     hashedPassword = await bcrypt.hash(password, 12);
   } catch (err) {
     console.log(err);
