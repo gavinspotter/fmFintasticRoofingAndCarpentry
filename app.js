@@ -27,6 +27,8 @@ if (process.env.PROXY === "https://") {
   });
 }
 
+app.use(express.static(path.join("public")));
+
 app.use(formData.parse());
 
 app.use(bodyParser.json());
