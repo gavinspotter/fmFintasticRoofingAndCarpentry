@@ -46,21 +46,25 @@ const CarpentryProjectLook = () => {
                 <Carousel variant="dark">
                   <Carousel.Item interval={100000000}>
                     <div className="projectLook-carousel-box">
-                      <img
-                        className="d-block projectLook-carousel"
-                        src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${carpentry.coverPhotoBucketId}`}
-                        alt="First slide"
-                      />
+                      <div className="projectLook-spacing">
+                        <img
+                          className="d-block projectLook-carousel"
+                          src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${carpentry.coverPhotoBucketId}`}
+                          alt="First slide"
+                        />
+                      </div>
                     </div>
                   </Carousel.Item>
                   {carpentry.photosPhotoBucketIds.map((x, index) => (
                     <Carousel.Item interval={100000000}>
                       <div className="projectLook-carousel-box">
-                        <img
-                          className="d-block projectLook-carousel"
-                          src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${x}`}
-                          alt="First slide"
-                        />
+                        <div className="projectLook-spacing">
+                          <img
+                            className="d-block projectLook-carousel"
+                            src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${x}`}
+                            alt="First slide"
+                          />
+                        </div>
                       </div>
                     </Carousel.Item>
                   ))}
@@ -71,7 +75,7 @@ const CarpentryProjectLook = () => {
           {carpentry && (
             <div>
               <div className="projectLook-text-job">
-                <div className="projectLook-listText">
+                {/* <div className="projectLook-listText">
                   {" "}
                   Do you like this job? Add it to your list and we'll bring it
                   up during your free consultation.{" "}
@@ -79,12 +83,11 @@ const CarpentryProjectLook = () => {
                     <IoAddCircleOutline />{" "}
                   </div>{" "}
                 </div>
-                {/* <br />
-                  <br /> */}
+       
                 <div className="projectLook-line">
                   {" "}
                   <hr />{" "}
-                </div>
+                </div> */}
 
                 {/* <span className="inlineBlock">description: </span>{" "} */}
                 <p className="inlineBlock">{carpentry.description}</p>

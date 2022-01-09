@@ -29,3 +29,13 @@
 .textAlignCenter {
   text-align: center;
 }
+
+.getFont {
+  font-family: "Palatino, URW Palladio L, serif";
+}
+
+@media (max-width: 512px) {
+  .marginleft {
+    margin-left: 0rem;
+  }
+}

@@ -125,6 +125,13 @@ body {
 .textAlignCenter {
   text-align: center; }
 
+.getFont {
+  font-family: "Palatino, URW Palladio L, serif"; }
+
+@media (max-width: 512px) {
+  .marginleft {
+    margin-left: 0rem; } }
+
 .use-bootstrap {
   /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -7494,6 +7501,11 @@ body {
   position: relative;
   width: 100%;
   height: 100vh; }
+  .home-img {
+    object-fit: cover;
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100%; }
   .home-aboutUs {
     position: absolute;
     top: 0;
@@ -8006,3 +8018,546 @@ body {
     background: linear-gradient(to right bottom, rgba(165, 4, 4, 0.8), rgba(5, 1, 29, 0.8));
     border: none;
     border-radius: 2.5rem; }
+
+@media (max-width: 512px) {
+  .home {
+    position: relative;
+    width: 100%;
+    height: 105rem; }
+    .home-img {
+      object-fit: cover;
+      width: 100%;
+      height: 105rem; }
+    .home-mobileCatagories {
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 45rem; }
+    .home-aboutUs {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;
+      background: white;
+      margin-top: 10rem;
+      width: 30rem;
+      height: 40rem; }
+      .home-aboutUs-consultation {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 5rem;
+        background-color: #008035;
+        color: white;
+        width: fit-content;
+        block-size: fit-content;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 5rem;
+        height: 5rem;
+        font-size: 2.7rem; }
+    .home-carpentry {
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      background: white;
+      margin-top: 15rem;
+      margin-left: 20%;
+      width: 25rem;
+      height: 5rem;
+      font-size: 2.7rem;
+      font-family: "Palatino, URW Palladio L, serif";
+      transform: 0;
+      overflow: hidden; }
+    .home-roofing {
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      background: white;
+      margin-top: 25rem;
+      margin-left: 20%;
+      width: 25rem;
+      height: 5rem;
+      font-size: 2.7rem;
+      font-family: "Palatino, URW Palladio L, serif";
+      overflow: hidden; }
+    .home-siding {
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      background: white;
+      margin-top: 35rem;
+      margin-left: 20%;
+      width: 25rem;
+      height: 5rem;
+      font-size: 2.7rem;
+      font-family: "Palatino, URW Palladio L, serif";
+      overflow: hidden; }
+    .home-dashBoard {
+      position: absolute;
+      top: 1rem;
+      right: 3rem;
+      width: 5rem;
+      height: 5rem;
+      font-size: 3.8rem;
+      text-align: center;
+      border-radius: 5rem;
+      background-color: white; }
+    .home-roofingBlock {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background-color: maroon;
+      overflow: auto; }
+      .home-roofingBlock-listBlock {
+        margin: auto;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        width: 100%;
+        text-align: center; }
+        .home-roofingBlock-listBlock-title {
+          font-size: 4rem;
+          color: wheat;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 5rem;
+          font-family: "Palatino, URW Palladio L, serif";
+          width: fit-content;
+          block-size: fit-content; }
+      .home-roofingBlock-itemBlock {
+        position: relative;
+        vertical-align: top;
+        display: inline-block;
+        width: 28rem;
+        background-color: white;
+        margin-bottom: 5rem;
+        padding: 1.5rem;
+        height: 15rem;
+        margin: 3rem;
+        font-family: "Palatino, URW Palladio L, serif";
+        overflow: hidden; }
+        .home-roofingBlock-itemBlock-text {
+          width: 9rem;
+          height: 14rem;
+          overflow: hidden; }
+        .home-roofingBlock-itemBlock-imgBlock {
+          width: 19rem;
+          height: 14rem;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .home-roofingBlock-itemBlock-imgBlock-img {
+            margin: auto;
+            max-width: 18rem;
+            max-height: 14rem; }
+    .home-sidingBlock {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background-color: black;
+      overflow: auto; }
+    .home-carpentryBlock {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background-color: gray;
+      overflow: auto; }
+  .tie-left {
+    width: 10rem;
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    right: -2.8rem;
+    transform: rotate(45deg);
+    font-size: 2rem;
+    background-color: #008035; }
+  .tie-right {
+    width: 10rem;
+    height: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: -2.8rem;
+    transform: rotate(45deg);
+    font-size: 2rem;
+    background-color: #008035; }
+  .tie-bottom-right {
+    width: 10rem;
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    right: -2.8rem;
+    transform: rotate(45deg);
+    font-size: 2rem;
+    background-color: #008035; }
+  .tie-bottom-left {
+    width: 10rem;
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    right: -2.8rem;
+    transform: rotate(45deg);
+    font-size: 2rem;
+    background-color: #008035; }
+  .login {
+    width: 100%;
+    height: 100vh;
+    background-color: maroon;
+    position: relative;
+    overflow: auto; }
+    .login-button {
+      border: none;
+      border-radius: 2rem;
+      padding: 1rem;
+      background-color: #008035;
+      color: white; }
+    .login-tie-top-left {
+      width: 10rem;
+      height: 1rem;
+      position: absolute;
+      top: 0;
+      left: -2.8rem;
+      transform: rotate(-45deg);
+      font-size: 2rem;
+      background-color: #008035; }
+    .login-tie-bottom-left {
+      width: 10rem;
+      height: 1rem;
+      position: absolute;
+      bottom: 0;
+      left: -2.8rem;
+      transform: rotate(45deg);
+      font-size: 2rem;
+      background-color: #008035; }
+    .login-tie-bottom-right {
+      width: 10rem;
+      height: 1rem;
+      position: absolute;
+      bottom: 0;
+      right: -2.8rem;
+      transform: rotate(-45deg);
+      font-size: 2rem;
+      background-color: #008035; }
+    .login-tie-top-right {
+      width: 10rem;
+      height: 1rem;
+      position: absolute;
+      top: 0;
+      right: -2.8rem;
+      transform: rotate(45deg);
+      font-size: 2rem;
+      background-color: #008035; }
+    .login-port {
+      position: relative;
+      width: 35rem;
+      height: 45rem;
+      right: 0;
+      left: 0;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: white;
+      margin-top: 5rem;
+      overflow: hidden;
+      text-align: center; }
+    .login-inputs {
+      border: 0.05rem #979696 solid;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      display: block;
+      margin-bottom: 2rem;
+      margin-top: 0rem;
+      margin-left: auto;
+      margin-right: auto; }
+      .login-inputs-firstChild {
+        margin-top: 15rem; }
+      .login-inputs:focus {
+        outline: none; }
+  .mobileBlock {
+    display: block;
+    margin: 1rem; }
+  .dashboard {
+    width: 100%;
+    height: 100vh;
+    background-color: maroon;
+    position: relative;
+    overflow: auto; }
+    .dashboard-homeNav {
+      position: absolute;
+      top: 1rem;
+      right: 20rem;
+      width: 5rem;
+      height: 5rem;
+      font-size: 3.5rem;
+      text-align: center;
+      border-radius: 5rem;
+      background-color: white; }
+    .dashboard-logout {
+      position: absolute;
+      top: 1rem;
+      right: 10rem;
+      width: 5rem;
+      height: 5rem;
+      font-size: 3.8rem;
+      text-align: center;
+      border-radius: 5rem;
+      background-color: white; }
+    .dashboard-addPhotos {
+      margin-top: 10rem;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10rem;
+      width: 100%;
+      min-height: 35rem;
+      background-color: white;
+      list-style: none; }
+    .dashboard-type {
+      margin: 2rem; }
+    .dashboard-description {
+      margin: 2rem; }
+      .dashboard-description-indiv {
+        vertical-align: top; }
+    .dashboard-xButton {
+      margin: 1rem;
+      padding: 0.5rem;
+      padding-bottom: 0.25rem;
+      background-color: black;
+      color: white;
+      border-radius: 5rem;
+      border: none; }
+    .dashboard-coverPhoto {
+      margin: 2rem; }
+      .dashboard-coverPhoto-inputIcon {
+        margin: 1rem;
+        padding: 1rem;
+        padding-bottom: 0.5rem;
+        color: white;
+        background: black;
+        border-radius: 4rem;
+        font-size: 2rem;
+        border: none; }
+      .dashboard-coverPhoto-iconFont {
+        margin: 1rem;
+        padding: 1rem;
+        padding-bottom: 0.5rem;
+        color: white;
+        background: black;
+        border-radius: 4rem;
+        font-size: 2rem;
+        border: none; }
+    .dashboard-choosePhoto::file-selector-button {
+      background-color: black;
+      color: white;
+      content: "choose";
+      border: none;
+      margin: 1rem; }
+    .dashboard-pPics-title {
+      margin: 2rem; }
+    .dashboard-pPics-listItems {
+      margin: 2rem; }
+    .dashboard-materials-title {
+      margin: 2rem; }
+    .dashboard-materials-listItems {
+      margin: 2rem; }
+    .dashboard-inputs {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      margin-left: 4rem; }
+    .dashboard-submit {
+      padding: 1rem;
+      color: white;
+      padding-bottom: 0.5rem;
+      background-color: black;
+      border: none;
+      border-radius: 5rem;
+      font-size: 2rem;
+      position: relative;
+      left: 24rem;
+      bottom: 0; }
+    .dashboard-textarea {
+      width: 30rem;
+      height: 10rem;
+      resize: none; }
+    .dashboard-picDisplay {
+      display: none; }
+  .image-upload__preview {
+    max-width: 30rem;
+    max-height: 30rem;
+    border: 1px solid #ccc;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-bottom: 1rem;
+    margin-top: 3rem; }
+  .cardTie-bottom-right {
+    width: 15rem;
+    height: 4rem;
+    padding-top: 0.2rem;
+    padding-bottom: 2rem;
+    position: absolute;
+    bottom: -2rem;
+    right: -5.2rem;
+    transform: rotate(-45deg);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    background-color: black; }
+    .cardTie-bottom-right-font {
+      transform: rotate(45deg); }
+  .projectLook {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: maroon;
+    overflow: auto; }
+    .projectLook-line {
+      width: 10rem;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 3rem; }
+    .projectLook-listText {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto; }
+    .projectLook-addToList {
+      font-size: 4rem; }
+    .projectLook-goBack {
+      position: absolute;
+      border-radius: 6rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: whitesmoke;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 2.3rem;
+      color: grey; }
+      .projectLook-goBack-dash {
+        font-size: 2rem; }
+    .projectLook-box {
+      margin-top: 7rem;
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      min-height: 50rem;
+      background: whitesmoke;
+      margin-bottom: 10rem;
+      position: relative;
+      overflow: auto; }
+    .projectLook-text-job {
+      font-family: "Palatino, URW Palladio L, serif";
+      margin-top: 3rem;
+      margin-left: 2rem;
+      margin-bottom: 3rem;
+      font-size: 1.5rem;
+      width: 30rem; }
+    .projectLook-carousel {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      max-height: 26rem;
+      width: 100%;
+      vertical-align: middle; }
+      .projectLook-carousel-spacing {
+        position: relative;
+        overflow: auto;
+        height: 29rem;
+        margin-top: 2rem; }
+      .projectLook-carousel-box {
+        height: 31rem;
+        margin-top: 2rem; }
+  .consultation {
+    position: relative;
+    width: 100%;
+    height: 120rem; }
+    .consultation-img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%; }
+    .consultation-backToHome {
+      position: absolute;
+      left: 3rem;
+      top: 3rem;
+      font-size: 2.9rem;
+      border-radius: 5rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: wheat;
+      color: #474747;
+      text-align: center; }
+    .consultation-box {
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      height: 109rem;
+      background-color: whitesmoke;
+      font-family: "Palatino, URW Palladio L, serif"; }
+    .consultation-title {
+      text-align: center;
+      margin-top: 2rem;
+      margin-right: auto;
+      margin-left: auto;
+      color: #4d4949;
+      width: fit-content; }
+    .consultation-hours {
+      margin-left: auto;
+      margin-right: auto;
+      color: #4d4949;
+      width: 23rem;
+      display: block;
+      margin-top: 6rem; }
+      .consultation-hours-title {
+        font-size: 3rem;
+        text-align: center; }
+      .consultation-hours-paragraph {
+        font-size: 2.5rem;
+        text-align: center; }
+    .consultation-form {
+      position: relative;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+      width: fit-content;
+      margin-top: 2.5rem; }
+      .consultation-form-blocks {
+        margin: 0.4rem; }
+      .consultation-form-streetInput {
+        width: 30.2rem; }
+    .consultation-textArea {
+      width: 30.2rem;
+      height: 10rem;
+      resize: none; }
+    .consultation-button {
+      position: absolute;
+      bottom: -4rem;
+      right: 0;
+      margin-top: 2rem;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      color: white;
+      background: linear-gradient(to right bottom, rgba(165, 4, 4, 0.8), rgba(5, 1, 29, 0.8));
+      border: none;
+      border-radius: 2.5rem; } }

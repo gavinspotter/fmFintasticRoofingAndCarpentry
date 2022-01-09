@@ -211,11 +211,11 @@ const Dashboard = () => {
     <div className="dashboard">
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && <LoadingSpinner asOverlay />}
-      <Link to="/">
+      {/* <Link to="/">
         <div className="projectLook-goBack projectLook-goBack-dash">
           <IoArrowBackOutline />
         </div>
-      </Link>
+      </Link> */}
       <div onClick={homePageToggle} className="dashboard-homeNav">
         <svg width="0" height="0">
           <linearGradient
@@ -379,13 +379,17 @@ const Dashboard = () => {
 
             {arr1.fields.map((item, index) => (
               <li className="dashboard-materials-listItems" key={item.id}>
-                <label>description:</label>
-                <input {...register(`materialsUsed.${index}.name`)} />
-                <label className="marginleft">dimensions:(optional)</label>
-                <input
-                  defaultValue={null}
-                  {...register(`materialsUsed.${index}.dimensions`)}
-                />
+                <div className="mobileBlock">
+                  <label>description:</label>
+                  <input {...register(`materialsUsed.${index}.name`)} />
+                </div>
+                <div className="mobileBlock">
+                  <label className="marginleft">dimensions:(optional)</label>
+                  <input
+                    defaultValue={null}
+                    {...register(`materialsUsed.${index}.dimensions`)}
+                  />
+                </div>
                 <button
                   className="dashboard-xButton"
                   type="button"

@@ -76,7 +76,7 @@ const RoofingProjectLook = () => {
           {roofing && (
             <div>
               <div className="projectLook-text-job">
-                <div className="projectLook-listText">
+                {/* <div className="projectLook-listText">
                   {" "}
                   Do you like this job? Add it to your list and we'll bring it
                   up during your free consultation.{" "}
@@ -84,12 +84,12 @@ const RoofingProjectLook = () => {
                     <IoAddCircleOutline />{" "}
                   </div>{" "}
                 </div>
-                {/* <br />
-                <br /> */}
+                
                 <div className="projectLook-line">
                   {" "}
                   <hr />{" "}
                 </div>
+                <div></div> */}
 
                 {/* <span className="inlineBlock">description: </span>{" "} */}
                 <p className="inlineBlock">{roofing.description}</p>

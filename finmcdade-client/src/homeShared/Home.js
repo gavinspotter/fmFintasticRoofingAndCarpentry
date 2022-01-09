@@ -64,7 +64,7 @@ const Home = () => {
     <div>
       <div className="home">
         <img
-          className="home"
+          className="home-img"
           src={titleImg}
           alt="fintastic roofing carpentry and shingles, go with us!"
         />
@@ -92,19 +92,21 @@ const Home = () => {
           </Link>
         </div>
 
-        <div className="home-carpentry">
-          <span className="tie-left"></span>
-          carpentry <span className="tie-right"></span>
-        </div>
+        <div className="home-mobileCatagories">
+          <div className="home-carpentry">
+            <span className="tie-left"></span>
+            carpentry <span className="tie-right"></span>
+          </div>
 
-        <div className="home-roofing">
-          {" "}
-          <span className="tie-left"></span>
-          roofing <span className="tie-right"></span>
-        </div>
-        <div className="home-siding">
-          <span className="tie-left"></span> siding{" "}
-          <span className="tie-right"></span>{" "}
+          <div className="home-roofing">
+            {" "}
+            <span className="tie-left"></span>
+            roofing <span className="tie-right"></span>
+          </div>
+          <div className="home-siding">
+            <span className="tie-left"></span> siding{" "}
+            <span className="tie-right"></span>{" "}
+          </div>
         </div>
       </div>
 

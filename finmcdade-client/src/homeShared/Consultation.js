@@ -102,88 +102,90 @@ const Consultation = () => {
               Give us a call at <br /> <span>(603) 374-4323</span> <br />
               Shoot us an email at
               <br />
-              fin@fintasticcarpentry.com. <br /> We would love to hear from you!
+              fin@fintasticcarpentry.com <br /> We would love to hear from you!
             </div>
           </div>
         </div>
-        <form className="consultation-form">
-          <div className="block">
-            <div className="inlineBlock consultation-form-blocks">
-              <label>First Name:</label>
+        <div className="consultation-form">
+          <form>
+            <div className="block">
+              <div className="inlineBlock consultation-form-blocks">
+                <label>First Name:</label>
+                <br />
+                <input className="getFont" {...register("firstName")} />
+              </div>
+              <div className="inlineBlock consultation-form-blocks">
+                <label>Last Name:</label>
+                <br />
+                <input className="getFont" {...register("lastName")} />
+              </div>
+            </div>
+            <div className="block">
+              <div className="inlineBlock consultation-form-blocks">
+                <label>Phone:</label>
+                <br />
+                <input className="getFont" {...register("phoneNumber")} />
+              </div>
+              <div className="inlineBlock consultation-form-blocks">
+                <label>Email:</label>
+                <br />
+                <input className="getFont" {...register("email")} />
+              </div>
+            </div>
+            <div className="consultation-form-blocks">
+              <label>Street:</label>
               <br />
-              <input {...register("firstName")} />
+              <input
+                {...register("street")}
+                className="consultation-form-streetInput getFont"
+              />
             </div>
             <div className="inlineBlock consultation-form-blocks">
-              <label>Last Name:</label>
+              <label>City:</label>
               <br />
-              <input {...register("lastName")} />
-            </div>
-          </div>
-          <div className="block">
-            <div className="inlineBlock consultation-form-blocks">
-              <label>Phone:</label>
-              <br />
-              <input {...register("phoneNumber")} />
+              <input {...register("city")} />
             </div>
             <div className="inlineBlock consultation-form-blocks">
-              <label>Email:</label>
+              <label>State:</label>
               <br />
-              <input {...register("email")} />
+              <input className="getFont" {...register("state")} />
             </div>
-          </div>
-          <div className="consultation-form-blocks">
-            <label>Street:</label>
-            <br />
-            <input
-              {...register("street")}
-              className="consultation-form-streetInput"
-            />
-          </div>
-          <div className="inlineBlock consultation-form-blocks">
-            <label>City:</label>
-            <br />
-            <input {...register("city")} />
-          </div>
-          <div className="inlineBlock consultation-form-blocks">
-            <label>State:</label>
-            <br />
-            <input {...register("state")} />
-          </div>
-          <div className="consultation-form-blocks">
-            <label>Zip Code:</label>
-            <br />
-            <input {...register("zipCode")} />
-          </div>
-          <div>
-            <p>What hour of the day may we reach out to you?</p>
-            <div className="inlineBlock consultation-form-blocks">
-              <label>Hour:</label>
+            <div className="consultation-form-blocks">
+              <label>Zip Code:</label>
               <br />
-              <input {...register("hour")} />
+              <input className="getFont" {...register("zipCode")} />
+            </div>
+            <div>
+              <p>What hour of the day may we reach out to you?</p>
+              <div className="inlineBlock consultation-form-blocks">
+                <label>Hour:</label>
+                <br />
+                <input className="getFont" {...register("hour")} />
+              </div>
+
+              <div className="inlineBlock consultation-form-blocks">
+                <label>Date:</label>
+                <br />
+                <input className="getFont" {...register("date")} />
+              </div>
             </div>
 
-            <div className="inlineBlock consultation-form-blocks">
-              <label>Date:</label>
+            <div className=" consultation-form-blocks">
+              <label>Details:</label>
               <br />
-              <input {...register("date")} />
+              <textarea
+                {...register("details")}
+                className="consultation-textArea getFont"
+              />
             </div>
-          </div>
-
-          <div className=" consultation-form-blocks">
-            <label>Details:</label>
-            <br />
-            <textarea
-              {...register("details")}
-              className="consultation-textArea"
-            />
-          </div>
-          <div
-            onClick={handleSubmit(submitConsultationRequest)}
-            className="consultation-button"
-          >
-            submit
-          </div>
-        </form>
+            <div
+              onClick={handleSubmit(submitConsultationRequest)}
+              className="consultation-button"
+            >
+              submit
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
