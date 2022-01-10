@@ -34,6 +34,17 @@
   font-family: "Palatino, URW Palladio L, serif";
 }
 
+.animationRight {
+  animation: moveInRight 1s ease-out;
+}
+.animationLeft {
+  animation: moveInLeft 1s ease-out;
+}
+
+.animationTop {
+  animation: moveInTop 1s ease-out;
+}
+
 @media (max-width: 512px) {
   .marginleft {
     margin-left: 0rem;

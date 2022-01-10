@@ -4,20 +4,21 @@ import { Link } from "react-router-dom";
 
 const CarpentryProjectsItem = (props) => {
   return (
-    <div className="home-roofingBlock-itemBlock">
-      <div className="inlineBlock verticalAlign">
-        <div className="home-roofingBlock-itemBlock-imgBlock">
-          <img
-            className="home-roofingBlock-itemBlock-imgBlock-img"
-            src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${props.coverPhotoBucketId}`}
-            alt={props.details}
-          />
+    <Link to={`/carpentry/${props._id}`}>
+      <div className="home-roofingBlock-itemBlock">
+        <div className="inlineBlock verticalAlign">
+          <div className="home-roofingBlock-itemBlock-imgBlock">
+            <img
+              className="home-roofingBlock-itemBlock-imgBlock-img"
+              src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${props.coverPhotoBucketId}`}
+              alt={props.details}
+            />
+          </div>
         </div>
-      </div>
-      <div className="home-roofingBlock-itemBlock-text inlineBlock verticalAlign">
-        <p>{props.description}</p>
+        <div className="home-roofingBlock-itemBlock-text inlineBlock verticalAlign">
+          <p>{props.description}</p>
 
-        {/* <div>
+          {/* <div>
               {props.materialsUsed.map((x) => (
                 <div>
                   <span>{x.name}</span>
@@ -30,17 +31,16 @@ const CarpentryProjectsItem = (props) => {
                 <div>{x}</div>
               ))}
             </div> */}
-      </div>
-      {props.photosPhotoBucketIds.length > 0 && (
-        <Link to={`/carpentry/${props._id}`}>
+        </div>
+        {props.photosPhotoBucketIds.length > 0 && (
           <div className="cardTie-bottom-right">
             <div className="cardTie-bottom-right-font">
               +{props.photosPhotoBucketIds.length} <IoImagesOutline />
             </div>
           </div>
-        </Link>
-      )}
-    </div>
+        )}
+      </div>
+    </Link>
   );
 };
 

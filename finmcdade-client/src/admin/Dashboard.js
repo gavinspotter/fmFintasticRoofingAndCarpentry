@@ -61,7 +61,7 @@ const Dashboard = () => {
     // bulkImage: null,
   });
 
-  const [crop, setCrop] = useState({ aspect: 16 / 9 });
+  // const [crop, setCrop] = useState({ aspect: 16 / 9 });
 
   const arr2 = useFieldArray({
     control: control,
@@ -78,8 +78,9 @@ const Dashboard = () => {
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset({
-        type: "",
+        //type: "",
         description: "",
+        materialsUsed: [],
       });
     }
     setPreviewUrl(null);
@@ -120,6 +121,7 @@ const Dashboard = () => {
   const submitAProject = async (data) => {
     console.log(data);
     const imageElement = cropperRef.current;
+    console.log(imageElement);
 
     try {
       //const fileContent = fs.readFileSync(data.image[0])
@@ -132,27 +134,23 @@ const Dashboard = () => {
       //   }
       // }
 
-      if (data.pics || data.pics.length > 0) {
+      const sendBlob = imageElement.cropper.getCroppedCanvas().toDataURL();
+
+      var binary = atob(sendBlob.split(",")[1]),
+        array = [];
+      for (var i = 0; i < binary.length; i++) array.push(binary.charCodeAt(i));
+      const getBlob = new Blob([new Uint8Array(array)], { type: file.type });
+
+      if (data.pics) {
         console.log(file);
         for (let i = 0; i < data.pics.length; i++) {
           formData.append(i, data.pics[i].picture[0]);
         }
-        const sendBlob = imageElement.cropper.getCroppedCanvas().toDataURL();
-
-        var binary = atob(sendBlob.split(",")[1]),
-          array = [];
-        for (var i = 0; i < binary.length; i++)
-          array.push(binary.charCodeAt(i));
-        const getBlob = new Blob([new Uint8Array(array)], { type: file.type });
 
         console.log(sendBlob);
         formData.append(data.pics.length, getBlob);
       } else if (!data.pics) {
-        const sendBlob = imageElement.cropper
-          .getCroppedCanvas()
-          .toDataURL()
-          .dataURLtoBlob();
-        formData.append("0", sendBlob);
+        formData.append("0", getBlob);
       }
 
       // if (data.pics.length > 0) {
@@ -163,8 +161,9 @@ const Dashboard = () => {
       //   console.log(file);
       //   formData.append("0", file);
       // }
-      formData.append("materialsUsed", JSON.stringify(data.materialsUsed));
-
+      if (data.materialsUsed) {
+        formData.append("materialsUsed", JSON.stringify(data.materialsUsed));
+      }
       formData.append("type", data.type);
       formData.append("description", data.description);
       //formData.append("materialsUsed");
@@ -205,7 +204,7 @@ const Dashboard = () => {
     setResetIt(null);
   };
 
-  console.log(crop);
+  // console.log(crop);
 
   return (
     <div className="dashboard">
@@ -272,7 +271,7 @@ const Dashboard = () => {
             <div className="dashboard-type">
               <label className="addItem-picInput-label">type: </label>
 
-              <select {...register("type")}>
+              <select defaultValue="roofing" {...register("type")}>
                 <option value="roofing">roofing</option>
                 <option value="siding">siding</option>
                 <option value="carpentry">carpentry</option>
@@ -318,7 +317,7 @@ const Dashboard = () => {
                   <Cropper
                     src={previewUrl}
                     initialAspectRatio={12 / 9}
-                    crop={onCrop}
+                    //crop={onCrop}
                     ref={cropperRef}
                   />
                 </div>

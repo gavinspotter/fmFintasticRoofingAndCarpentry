@@ -150,6 +150,8 @@
     }
 
     &-itemBlock {
+      text-decoration: none;
+      color: black;
       position: relative;
       vertical-align: top;
       display: inline-block;
@@ -482,6 +484,7 @@
     padding: 1rem;
     color: white;
     padding-bottom: 0.5rem;
+    width: fit-content;
 
     background-color: black;
     // background: linear-gradient(
@@ -544,12 +547,67 @@
   height: 100vh;
   background-color: maroon;
   overflow: auto;
+
+  &-displayNone {
+    display: none;
+  }
+
+  &-modal {
+    z-index: 40;
+    position: fixed;
+    width: 30rem;
+    height: 13rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 20rem;
+    border-radius: 2rem;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.5rem rgb(124, 124, 124);
+    animation: moveInTopLowDistance 0.8s ease-out;
+
+    &-header {
+      text-align: center;
+      height: 4rem;
+      width: 100%;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+
+      font-size: 1.5rem;
+      background-color: green;
+      color: white;
+    }
+    &-buttons {
+      display: inline-block;
+      margin: 2rem;
+      padding: 0.5rem;
+      background-color: rgb(1, 55, 136);
+      color: white;
+      border-radius: 2rem;
+      width: 4rem;
+    }
+  }
+
   &-line {
     width: 10rem;
     margin-left: auto;
     margin-right: auto;
     //margin-top: 3rem;
     margin-bottom: 3rem;
+  }
+  &-deleteButton {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: tan;
+    color: black;
+    border-radius: 5rem;
+    font-size: 2.2rem;
+    text-align: center;
   }
 
   &-listText {
@@ -1378,6 +1436,17 @@
         //   margin-top: 2rem;
         //   margin-bottom: 2rem;
       }
+    }
+    &-deleteButton {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: tan;
+      color: black;
+      border-radius: 5rem;
+      font-size: 2rem;
     }
   }
 

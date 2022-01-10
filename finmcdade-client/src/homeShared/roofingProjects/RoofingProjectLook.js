@@ -6,11 +6,12 @@ import {
   IoArrowBackOutline,
   IoBackspaceOutline,
 } from "react-icons/io5";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../shared/context/auth-context";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import ConfirmationModal from "../../shared/UIElements/ConfirmationModal";
 
 // import "~slick-carousel/slick/slick.css";
 // import "~slick-carousel/slick/slick-theme.css";
@@ -19,6 +20,8 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 
 const RoofingProjectLook = () => {
   const projectId = useParams().rId;
+
+  const navigate = useNavigate();
 
   const auth = useContext(AuthContext);
 
@@ -33,13 +36,14 @@ const RoofingProjectLook = () => {
   const deleteProject = async () => {
     try {
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/admin/deleteProject/${projectId}`,
+        `http://localhost:5000/api/admin/deleteProject/${projectId}`,
         "DELETE",
         null,
         {
           Authorization: "Bearer " + auth.token,
         }
       );
+      navigate("/");
     } catch (err) {}
   };
 
@@ -53,8 +57,27 @@ const RoofingProjectLook = () => {
     fetchAProject();
   }, [sendRequest, projectId]);
 
+  const [test, setTest] = useState("projectLook-displayNone");
+
+  const aTest = () => {
+    if (test === "projectLook-displayNone") {
+      setTest("projectLook-modal");
+    } else if (test === "projectLook-modal") {
+      setTest("projectLook-displayNone");
+    }
+  };
+
   return (
     <div className="use-bootstrap">
+      <div className={`${test}`}>
+        <div className="projectLook-modal-header">Are you sure?</div>
+        <div className="projectLook-modal-buttons" onClick={deleteProject}>
+          yes
+        </div>
+        <div className="projectLook-modal-buttons" onClick={aTest}>
+          no
+        </div>
+      </div>
       <div className="projectLook">
         <Link to="/">
           <div className="projectLook-goBack">
@@ -62,9 +85,12 @@ const RoofingProjectLook = () => {
           </div>
         </Link>
         <div className="projectLook-box">
-          <div>
-            <IoBackspaceOutline />
-          </div>
+          {auth.token && (
+            <div className="projectLook-deleteButton" onClick={aTest}>
+              <IoBackspaceOutline />
+            </div>
+          )}
+
           <div>
             {roofing && (
               <div className="projectLook-carousel-box">
@@ -80,7 +106,7 @@ const RoofingProjectLook = () => {
                   </Carousel.Item>
                   {roofing.photosPhotoBucketIds.map((x, index) => (
                     <Carousel.Item interval={100000000}>
-                      <div className="projectLook-carousel-box">
+                      <div key={x} className="projectLook-carousel-box">
                         <img
                           className="d-block projectLook-carousel"
                           src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${x}`}
@@ -115,7 +141,7 @@ const RoofingProjectLook = () => {
                 <p className="inlineBlock">{roofing.description}</p>
                 <div>
                   {roofing.materialsUsed.map((x) => (
-                    <div>
+                    <div key={x.name}>
                       <h2 className="inlineBlock">{x.name} </h2>
                       {"    "}
                       <h2 className="inlineBlock">{x.dimensions}</h2>
