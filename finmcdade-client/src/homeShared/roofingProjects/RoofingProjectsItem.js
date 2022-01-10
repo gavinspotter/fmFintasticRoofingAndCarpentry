@@ -9,7 +9,7 @@ const RoofingProjectsItem = (props) => {
         <div className="home-roofingBlock-itemBlock-imgBlock">
           <img
             className="home-roofingBlock-itemBlock-imgBlock-img"
-            src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${props.coverPhotoBucketId}`}
+            src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${props.coverPhotoBucketId}`}
             alt={props.details}
           />
         </div>

@@ -62,9 +62,9 @@ const RoofingProjectLook = () => {
           </div>
         </Link>
         <div className="projectLook-box">
-          {/* <div>
-            <IoBackspaceOutline/>
-            </div> */}
+          <div>
+            <IoBackspaceOutline />
+          </div>
           <div>
             {roofing && (
               <div className="projectLook-carousel-box">
@@ -73,7 +73,7 @@ const RoofingProjectLook = () => {
                     <div className="projectLook-carousel-box">
                       <img
                         className="d-block projectLook-carousel"
-                        src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${roofing.coverPhotoBucketId}`}
+                        src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${roofing.coverPhotoBucketId}`}
                         alt="First slide"
                       />
                     </div>
@@ -83,7 +83,7 @@ const RoofingProjectLook = () => {
                       <div className="projectLook-carousel-box">
                         <img
                           className="d-block projectLook-carousel"
-                          src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${x}`}
+                          src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${x}`}
                           alt="First slide"
                         />
                       </div>

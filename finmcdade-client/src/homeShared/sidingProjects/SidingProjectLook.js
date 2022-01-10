@@ -48,7 +48,7 @@ const SidingProjectLook = () => {
                     <div className="projectLook-carousel-box">
                       <img
                         className="d-block projectLook-carousel"
-                        src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${siding.coverPhotoBucketId}`}
+                        src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${siding.coverPhotoBucketId}`}
                         alt="First slide"
                       />
                     </div>
@@ -58,7 +58,7 @@ const SidingProjectLook = () => {
                       <div className="projectLook-carousel-box">
                         <img
                           className="d-block projectLook-carousel"
-                          src={`https://s3.us-east-1.amazonaws.com/fintasticbucket/${x}`}
+                          src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${x}`}
                           alt="First slide"
                         />
                       </div>
