@@ -49,7 +49,7 @@ const CarpentryProjectLook = () => {
                       <div className="projectLook-spacing">
                         <img
                           className="d-block projectLook-carousel"
-                          src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${carpentry.coverPhotoBucketId}`}
+                          src={`https://s3.us-east-1.amazonaws.com/${process.env.REACT_APP_AWS_BUCKET}/${carpentry.coverPhotoBucketId}`}
                           alt="First slide"
                         />
                       </div>
@@ -61,7 +61,7 @@ const CarpentryProjectLook = () => {
                         <div className="projectLook-spacing">
                           <img
                             className="d-block projectLook-carousel"
-                            src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${x}`}
+                            src={`https://s3.us-east-1.amazonaws.com/${process.env.REACT_APP_AWS_BUCKET}/${x}`}
                             alt="First slide"
                           />
                         </div>

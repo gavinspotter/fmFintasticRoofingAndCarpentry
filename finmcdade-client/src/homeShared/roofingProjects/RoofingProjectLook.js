@@ -99,7 +99,7 @@ const RoofingProjectLook = () => {
                     <div className="projectLook-carousel-box">
                       <img
                         className="d-block projectLook-carousel"
-                        src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${roofing.coverPhotoBucketId}`}
+                        src={`https://s3.us-east-1.amazonaws.com/${process.env.REACT_APP_AWS_BUCKET}/${roofing.coverPhotoBucketId}`}
                         alt="First slide"
                       />
                     </div>
@@ -109,7 +109,7 @@ const RoofingProjectLook = () => {
                       <div key={x} className="projectLook-carousel-box">
                         <img
                           className="d-block projectLook-carousel"
-                          src={`https://s3.us-east-1.amazonaws.com/cloversoftwaredevbucket/${x}`}
+                          src={`https://s3.us-east-1.amazonaws.com/${process.env.REACT_APP_AWS_BUCKET}/${x}`}
                           alt="First slide"
                         />
                       </div>
