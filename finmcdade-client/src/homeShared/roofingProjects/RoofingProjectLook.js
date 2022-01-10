@@ -36,7 +36,7 @@ const RoofingProjectLook = () => {
   const deleteProject = async () => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/admin/deleteProject/${projectId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/admin/deleteProject/${projectId}`,
         "DELETE",
         null,
         {
