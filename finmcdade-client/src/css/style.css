@@ -8170,13 +8170,9 @@ body {
         height: 5rem;
         font-size: 2.7rem; }
     .home-carpentry {
-      position: absolute;
       text-align: center;
-      top: 0;
-      left: 0;
       background: white;
       margin-top: 15rem;
-      margin-left: 20%;
       width: 25rem;
       height: 5rem;
       font-size: 2.7rem;
@@ -8186,11 +8182,8 @@ body {
     .home-roofing {
       position: absolute;
       text-align: center;
-      top: 0;
-      left: 0;
       background: white;
       margin-top: 25rem;
-      margin-left: 20%;
       width: 25rem;
       height: 5rem;
       font-size: 2.7rem;
@@ -8199,11 +8192,8 @@ body {
     .home-siding {
       position: absolute;
       text-align: center;
-      top: 0;
-      left: 0;
       background: white;
       margin-top: 35rem;
-      margin-left: 20%;
       width: 25rem;
       height: 5rem;
       font-size: 2.7rem;
