@@ -9,10 +9,26 @@
     min-height: 102vh;
     max-height: 100%;
   }
+  &-shark {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    background: white;
+    margin-top: 15rem;
+    margin-left: 24rem;
+    width: 21rem;
+    padding: 2rem;
+    //height: 5rem;
+    //font-size: 2.7rem;
+    //font-family: "Palatino, URW Palladio L, serif";
+    //transform: 0;
+    overflow: hidden;
+  }
   &-mobileCatagories {
     position: absolute;
     text-align: center;
-    top: 0;
+    top: 20rem;
     left: 0;
     right: 0;
     margin-right: auto;
@@ -67,7 +83,7 @@
     left: 0;
     background: white;
     margin-top: 15rem;
-    margin-left: 20%;
+    margin-left: 24rem;
     width: 25rem;
     height: 5rem;
     font-size: 2.7rem;
@@ -82,7 +98,7 @@
     left: 0;
     background: white;
     margin-top: 25rem;
-    margin-left: 20%;
+    margin-left: 24rem;
     width: 25rem;
     height: 5rem;
     font-size: 2.7rem;
@@ -97,7 +113,7 @@
     left: 0;
     background: white;
     margin-top: 35rem;
-    margin-left: 20%;
+    margin-left: 24rem;
     width: 25rem;
     height: 5rem;
     font-size: 2.7rem;
@@ -803,10 +819,29 @@
       height: 105rem;
     }
 
+    &-shark {
+      //position: absolute;
+      text-align: center;
+      left: 0;
+      right: 0;
+      top: 37.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      background: white;
+      margin-top: 15rem;
+      // margin-left: 20%;
+      width: 25rem;
+      //height: 5rem;
+      font-size: 2.7rem;
+      font-family: "Palatino, URW Palladio L, serif";
+      transform: 0;
+      overflow: hidden;
+    }
+
     &-mobileCatagories {
       position: absolute;
       text-align: center;
-      top: 0;
+      top: 13rem;
       left: 0;
       right: 0;
       margin-right: auto;
@@ -854,7 +889,10 @@
       //position: absolute;
       text-align: center;
       //top: 0;
-      //left: 0;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
       background: white;
       margin-top: 15rem;
       // margin-left: 20%;
@@ -868,6 +906,10 @@
     &-roofing {
       position: absolute;
       text-align: center;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
       //top: 0;
       //left: 0;
       background: white;
@@ -883,6 +925,10 @@
     &-siding {
       position: absolute;
       text-align: center;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
       //top: 0;
       //left: 0;
       background: white;

@@ -5,6 +5,7 @@ import "../css/style.css";
 import { IoCreateOutline, IoDuplicateOutline } from "react-icons/io5";
 import { AuthContext } from "../shared/context/auth-context";
 import { useNavigate } from "react-router";
+import fintasticShark from "../img/fintsticShark.JPG";
 
 import { useHttpClient } from "../shared/hooks/http-hook";
 import RoofingProjectsList from "./roofingProjects/RoofingProjectsList";
@@ -67,6 +68,11 @@ const Home = () => {
           className="home-img"
           src={titleImg}
           alt="fintastic roofing carpentry and shingles, go with us!"
+        />
+        <img
+          className="home-shark"
+          src={fintasticShark}
+          alt="Let fintastic serve you!"
         />
 
         {auth.token && (
