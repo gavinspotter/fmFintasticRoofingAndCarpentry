@@ -8662,11 +8662,12 @@ body {
   .consultation {
     position: relative;
     width: 100%;
-    height: 122rem; }
+    height: 122rem;
+    background-color: gray; }
     .consultation-img {
       object-fit: cover;
       width: 100%;
-      height: 122rem; }
+      height: 125rem; }
     .consultation-backToHome {
       position: absolute;
       left: 3rem;
