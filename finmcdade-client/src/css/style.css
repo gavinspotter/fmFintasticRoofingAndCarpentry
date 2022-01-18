@@ -8060,11 +8060,14 @@ body {
 .consultation {
   position: relative;
   width: 100%;
-  height: 100vh; }
+  min-height: 100vh;
+  max-height: 100%;
+  overflow: auto; }
   .consultation-img {
     object-fit: cover;
     width: 100%;
-    height: 100vh; }
+    min-height: 100vh;
+    max-height: 100%; }
   .consultation-backToHome {
     position: absolute;
     left: 3rem;
@@ -8662,13 +8665,14 @@ body {
   .consultation {
     position: relative;
     width: 100%;
-    min-height: 100rem;
+    min-height: 122rem;
     max-height: 100%;
     overflow: auto; }
     .consultation-img {
+      position: absolute;
       object-fit: cover;
       width: 100%;
-      min-height: 10rem;
+      min-height: 122rem;
       max-height: 100%; }
     .consultation-backToHome {
       position: absolute;
