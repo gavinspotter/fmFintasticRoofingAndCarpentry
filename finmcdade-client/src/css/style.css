@@ -8662,13 +8662,14 @@ body {
   .consultation {
     position: relative;
     width: 100%;
-    height: 120rem;
-    background-color: pink; }
+    min-height: 100rem;
+    max-height: 100%;
+    overflow: auto; }
     .consultation-img {
       object-fit: cover;
       width: 100%;
-      min-height: 120rem;
-      max-height: 200rem; }
+      min-height: 10rem;
+      max-height: 100%; }
     .consultation-backToHome {
       position: absolute;
       left: 3rem;
