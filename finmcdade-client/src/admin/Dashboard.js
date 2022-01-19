@@ -273,7 +273,7 @@ const Dashboard = () => {
 
               <select defaultValue="roofing" {...register("type")}>
                 <option value="roofing">roofing</option>
-                <option value="siding">siding</option>
+
                 <option value="carpentry">carpentry</option>
               </select>
             </div>
