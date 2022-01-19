@@ -121,8 +121,8 @@ const RoofingProjectLook = () => {
           </div>
           {roofing && (
             <div>
-              <div className="projectLook-text-job">
-                {/* <div className="projectLook-listText">
+              {/* <div className="projectLook-text-job">
+                <div className="projectLook-listText">
                   {" "}
                   Do you like this job? Add it to your list and we'll bring it
                   up during your free consultation.{" "}
@@ -135,9 +135,9 @@ const RoofingProjectLook = () => {
                   {" "}
                   <hr />{" "}
                 </div>
-                <div></div> */}
+                <div></div>
 
-                {/* <span className="inlineBlock">description: </span>{" "} */}
+                <span className="inlineBlock">description: </span>{" "} 
                 <p className="inlineBlock">{roofing.description}</p>
                 <div>
                   {roofing.materialsUsed.map((x) => (
@@ -148,7 +148,7 @@ const RoofingProjectLook = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           )}
         </div>

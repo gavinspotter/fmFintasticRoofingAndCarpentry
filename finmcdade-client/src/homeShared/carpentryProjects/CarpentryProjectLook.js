@@ -74,8 +74,8 @@ const CarpentryProjectLook = () => {
           </div>
           {carpentry && (
             <div>
-              <div className="projectLook-text-job">
-                {/* <div className="projectLook-listText">
+              {/* <div className="projectLook-text-job">
+                <div className="projectLook-listText">
                   {" "}
                   Do you like this job? Add it to your list and we'll bring it
                   up during your free consultation.{" "}
@@ -87,9 +87,9 @@ const CarpentryProjectLook = () => {
                 <div className="projectLook-line">
                   {" "}
                   <hr />{" "}
-                </div> */}
+                </div> 
 
-                {/* <span className="inlineBlock">description: </span>{" "} */}
+                <span className="inlineBlock">description: </span>{" "} 
                 <p className="inlineBlock">{carpentry.description}</p>
                 <div>
                   {carpentry.materialsUsed.map((x) => (
@@ -100,7 +100,7 @@ const CarpentryProjectLook = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           )}
         </div>

@@ -61,7 +61,7 @@ const signup = async (req, res, next) => {
   try {
     token = jwt.sign(
       { userId: createdAdmin.id, username: createdAdmin.username },
-      "supersecret_dont_share",
+      process.env.TOKEN_SECRET,
       { expiresIn: "24h" }
     );
   } catch (err) {
@@ -121,7 +121,7 @@ const login = async (req, res, next) => {
   try {
     token = jwt.sign(
       { userId: existingUser.id, username: existingUser.username },
-      "supersecret_dont_share",
+      process.env.TOKEN_SECRET,
       { expiresIn: "24h" }
     );
   } catch (err) {
@@ -199,13 +199,13 @@ const createProject = async (req, res, next) => {
     return next(error);
   }
 
-  console.log(materialsUsed);
+  //console.log(materialsUsed);
   //console.log(JSON.stringify(materialsUsed));
 
   //   for (let i; i < materialsUsed.length; i++) {
   //     console.log(JSON.stringify(materialsUsed[i]));
   //   }
-  const parseData = JSON.parse(materialsUsed);
+  //const parseData = JSON.parse(materialsUsed);
 
   const createProject = new Projects({
     type,
@@ -213,7 +213,7 @@ const createProject = async (req, res, next) => {
     coverPhotoBucketId: `${uniqueId}-${objkeys.length - 1}`,
     admin: findUser._id,
 
-    materialsUsed: parseData,
+    //materialsUsed: parseData,
   });
 
   //console.log(req.files);

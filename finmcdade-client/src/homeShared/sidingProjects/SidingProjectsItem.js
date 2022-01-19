@@ -16,7 +16,7 @@ const SidingProjectsItem = (props) => {
           </div>
         </div>
         <div className="home-roofingBlock-itemBlock-text inlineBlock verticalAlign">
-          <p>{props.description}</p>
+          {/* <p>{props.description}</p> */}
 
           {/* <div>
               {props.materialsUsed.map((x) => (

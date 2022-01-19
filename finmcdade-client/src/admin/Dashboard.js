@@ -161,11 +161,11 @@ const Dashboard = () => {
       //   console.log(file);
       //   formData.append("0", file);
       // }
-      if (data.materialsUsed) {
-        formData.append("materialsUsed", JSON.stringify(data.materialsUsed));
-      }
+      // if (data.materialsUsed) {
+      //   formData.append("materialsUsed", JSON.stringify(data.materialsUsed));
+      // }
       formData.append("type", data.type);
-      formData.append("description", data.description);
+      //formData.append("description", data.description);
       //formData.append("materialsUsed");
 
       await sendRequest(
@@ -277,7 +277,7 @@ const Dashboard = () => {
                 <option value="carpentry">carpentry</option>
               </select>
             </div>
-            <div className="dashboard-description">
+            {/* <div className="dashboard-description">
               <label className="dashboard-description-indiv">
                 description:{" "}
               </label>
@@ -286,7 +286,7 @@ const Dashboard = () => {
                 {...register("description")}
                 type="text"
               />
-            </div>
+            </div> */}
             <div>
               <label className="dashboard-coverPhoto">cover photo: </label>
               <label
@@ -363,7 +363,7 @@ const Dashboard = () => {
             ))}
 
             <br />
-            <div>
+            {/* <div>
               <label className="dashboard-materials-title">
                 materials: (optional)
               </label>
@@ -374,7 +374,7 @@ const Dashboard = () => {
               >
                 <IoAttachOutline />
               </span>
-            </div>
+            </div> */}
 
             {arr1.fields.map((item, index) => (
               <li className="dashboard-materials-listItems" key={item.id}>
