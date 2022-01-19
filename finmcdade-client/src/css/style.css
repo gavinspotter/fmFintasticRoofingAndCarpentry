@@ -7899,6 +7899,8 @@ body {
     content: "choose";
     border: none;
     margin: 1rem; }
+  .dashboard-pPics-uncover {
+    margin-top: 8rem; }
   .dashboard-pPics-title {
     margin: 2rem; }
   .dashboard-pPics-listItems {

@@ -327,7 +327,7 @@ const Dashboard = () => {
             {/* <button type="button" onClick={pickImageHandler}> pick image</button> */}
 
             <br />
-            <div>
+            <div className="dashboard-pPics-uncover">
               <label className="dashboard-pPics-title">project pics: </label>
               <span
                 className="dashboard-coverPhoto-iconFont"

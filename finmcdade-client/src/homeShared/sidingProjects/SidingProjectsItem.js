@@ -15,10 +15,10 @@ const SidingProjectsItem = (props) => {
             />
           </div>
         </div>
-        <div className="home-roofingBlock-itemBlock-text inlineBlock verticalAlign">
-          {/* <p>{props.description}</p> */}
+        {/* <div className="home-roofingBlock-itemBlock-text inlineBlock verticalAlign">
+          <p>{props.description}</p>
 
-          {/* <div>
+          <div>
               {props.materialsUsed.map((x) => (
                 <div>
                   <span>{x.name}</span>
@@ -30,8 +30,8 @@ const SidingProjectsItem = (props) => {
               {props.photosPhotoBucketIds.map((x) => (
                 <div>{x}</div>
               ))}
-            </div> */}
-        </div>
+            </div>
+        </div> */}
         {props.photosPhotoBucketIds.length > 0 && (
           <div className="cardTie-bottom-right">
             <div className="cardTie-bottom-right-font">
