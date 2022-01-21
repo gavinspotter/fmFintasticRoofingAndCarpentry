@@ -116,10 +116,10 @@ const Home = () => {
             <span className="tie-left"></span>
             roofing <span className="tie-right"></span>
           </div>
-          <div className="home-siding">
+          {/* <div className="home-siding">
             <span className="tie-left"></span> siding{" "}
             <span className="tie-right"></span>{" "}
-          </div>
+          </div> */}
         </div>
       </div>
 
