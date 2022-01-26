@@ -45,8 +45,24 @@
   animation: moveInTop 1s ease-out;
 }
 
-@media (max-width: 512px) {
+.fontSizeChange {
+  font-size: 4rem;
+}
+
+@media (max-width: 768px) {
   .marginleft {
     margin-left: 0rem;
+  }
+  .fontSizeChange {
+    font-size: 2.9rem;
+  }
+}
+
+@media (min-width: 2512px) {
+  .marginleft {
+    margin-left: 0rem;
+  }
+  .fontSizeChange {
+    font-size: 2.9rem;
   }
 }

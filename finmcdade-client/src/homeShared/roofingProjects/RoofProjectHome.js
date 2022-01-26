@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
+import { IoArrowBackOutline } from "react-icons/io5";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
@@ -35,6 +37,13 @@ const RoofProjectHome = () => {
 
   return (
     <div className="home-roofingBlock">
+      <Link to="/">
+        <div className="projectLook-goBack">
+          <div className="fontSizeChange ">
+            <IoArrowBackOutline />
+          </div>
+        </div>
+      </Link>
       {roofingProjects && <RoofingProjectsList items={roofingProjects} />}
     </div>
   );
