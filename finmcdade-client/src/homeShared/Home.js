@@ -106,16 +106,20 @@ const Home = () => {
         </div>
 
         <div className="home-mobileCatagories">
-          <div className="home-carpentry">
-            <span className="tie-left"></span>
-            carpentry <span className="tie-right"></span>
-          </div>
+          <Link to="/carpentry">
+            <div className="home-carpentry">
+              <span className="tie-left"></span>
+              carpentry <span className="tie-right"></span>
+            </div>
+          </Link>
 
-          <div className="home-roofing">
-            {" "}
-            <span className="tie-left"></span>
-            roofing <span className="tie-right"></span>
-          </div>
+          <Link to="/roofing">
+            <div className="home-roofing">
+              {" "}
+              <span className="tie-left"></span>
+              roofing <span className="tie-right"></span>
+            </div>
+          </Link>
           {/* <div className="home-siding">
             <span className="tie-left"></span> siding{" "}
             <span className="tie-right"></span>{" "}
@@ -123,7 +127,7 @@ const Home = () => {
         </div>
       </div>
 
-      {roofingProjects && roofingProjects.length > 0 && (
+      {/* {roofingProjects && roofingProjects.length > 0 && (
         <div className="home-roofingBlock">
           <RoofingProjectsList items={roofingProjects} />
         </div>
@@ -137,7 +141,7 @@ const Home = () => {
         <div className="home-carpentryBlock">
           <CarpentryProjectsList items={carpentryProjects} />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

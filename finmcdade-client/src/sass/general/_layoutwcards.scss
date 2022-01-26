@@ -90,6 +90,7 @@
     font-family: "Palatino, URW Palladio L, serif";
     transform: 0;
     overflow: hidden;
+    color: rgb(65, 65, 65);
   }
   &-roofing {
     position: absolute;
@@ -104,6 +105,7 @@
     font-size: 2.7rem;
     font-family: "Palatino, URW Palladio L, serif";
     overflow: hidden;
+    color: rgb(65, 65, 65);
   }
 
   &-siding {
@@ -139,6 +141,7 @@
     min-height: 100vh;
     background-color: maroon;
     overflow: auto;
+
     &-listBlock {
       //   position: absolute;
       //   top: 0;
@@ -217,6 +220,20 @@
     min-height: 100vh;
     background-color: gray;
     overflow: auto;
+    text-align: center;
+
+    &-none {
+      position: absolute;
+      font-size: 3rem;
+      margin-top: 0rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+
+      left: 0;
+      right: 0;
+      color: wheat;
+    }
   }
 }
 
@@ -707,7 +724,7 @@
 
   //background-color: maroon;
   &-img {
-    //position: absolute;
+    position: absolute;
     object-fit: cover;
     width: 100%;
     min-height: 100vh;

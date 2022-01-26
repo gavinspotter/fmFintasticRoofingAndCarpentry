@@ -17,6 +17,8 @@ import SidingProjectLook from "./homeShared/sidingProjects/SidingProjectLook";
 import RoofingProjectLook from "./homeShared/roofingProjects/RoofingProjectLook";
 import CarpentryProjectLook from "./homeShared/carpentryProjects/CarpentryProjectLook";
 import Consultation from "./homeShared/Consultation";
+import RoofProjectHome from "./homeShared/roofingProjects/RoofProjectHome";
+import CarpentryProjectHome from "./homeShared/carpentryProjects/CarpentryProjectHome";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -30,6 +32,8 @@ const App = () => {
         <Route path="/siding/:sId" element={<SidingProjectLook />} />
         <Route path="/roofing/:rId" element={<RoofingProjectLook />} />
         <Route path="/carpentry/:cId" element={<CarpentryProjectLook />} />
+        <Route path="/roofing" element={<RoofProjectHome />} />
+        <Route path="/carpentry" element={<CarpentryProjectHome />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Dashboard />} />
@@ -43,6 +47,8 @@ const App = () => {
         <Route path="/siding/:sId" element={<SidingProjectLook />} />
         <Route path="/roofing/:rId" element={<RoofingProjectLook />} />
         <Route path="/carpentry/:cId" element={<CarpentryProjectLook />} />
+        <Route path="/roofing" element={<RoofProjectHome />} />
+        <Route path="/carpentry" element={<CarpentryProjectHome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />

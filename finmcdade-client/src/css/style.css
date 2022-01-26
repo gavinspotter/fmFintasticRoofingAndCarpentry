@@ -7611,7 +7611,8 @@ body {
     font-size: 2.7rem;
     font-family: "Palatino, URW Palladio L, serif";
     transform: 0;
-    overflow: hidden; }
+    overflow: hidden;
+    color: #414141; }
   .home-roofing {
     position: absolute;
     text-align: center;
@@ -7624,7 +7625,8 @@ body {
     height: 5rem;
     font-size: 2.7rem;
     font-family: "Palatino, URW Palladio L, serif";
-    overflow: hidden; }
+    overflow: hidden;
+    color: #414141; }
   .home-siding {
     position: absolute;
     text-align: center;
@@ -7708,7 +7710,18 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: gray;
-    overflow: auto; }
+    overflow: auto;
+    text-align: center; }
+    .home-carpentryBlock-none {
+      position: absolute;
+      font-size: 3rem;
+      margin-top: 0rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      left: 0;
+      right: 0;
+      color: wheat; }
 
 .tie-left {
   width: 10rem;
@@ -8066,6 +8079,7 @@ body {
   max-height: 100%;
   overflow: auto; }
   .consultation-img {
+    position: absolute;
     object-fit: cover;
     width: 100%;
     min-height: 100vh;
